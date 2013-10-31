@@ -30,9 +30,12 @@ function createPreview(a){
 	var windowWidth = $(window).width();
 	var windowHeight = $(window).height();
 	var ele = document.createElement("iframe");//create preview box element, for future render
-	$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "2000", "box-shadow": "0px 0px 10px 0px black", "top": "10px", "right": "10px"});
+	$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "2000", "box-shadow": "0px 0px 10px 0px black", "top": "10px", "right": "10px", "background": "url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif')", "background-position": "center center"});
 	$(ele).attr("src", $(a).attr("href"));
 	$(ele).addClass("previewBox");//set identity
+	$(ele).load(function(){
+		$(this).css("background", "white");
+	});
 	$(a).parent().append(ele);//render the preview box element
 }
 previewIt();
