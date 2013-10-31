@@ -1,3 +1,12 @@
+// get the mouse position
+var mouseX, mouseY;
+$(function(){
+	$(window).mousemove(function(e){
+		mouseX = e.clientX;
+		mouseY = e.clientY;
+	});
+});
+// main function
 function previewIt(){
 	$("a").hover(function(){
 		var a = this; //save this to a for future usage
@@ -30,7 +39,20 @@ function createPreview(a){
 	var windowWidth = $(window).width();
 	var windowHeight = $(window).height();
 	var ele = document.createElement("iframe");//create preview box element, for future render
-	$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "2000", "box-shadow": "0px 0px 10px 0px black", "top": "10px", "right": "10px", "background": "url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif')", "background-position": "center center"});
+	$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "2000", "box-shadow": "0px 0px 10px 0px black", "background": "url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif')", "background-position": "center center"});
+	// judge the mouse position and set the position of preview box dynamically
+	if (mouseX < windowWidth / 2){
+		$(ele).css("right", "10px");
+	}
+	else{
+		$(ele).css("left", "10px");
+	}
+	if (mouseY < windowHeight / 2){
+		$(ele).css("bottom", "10px");
+	}
+	else{
+		$(ele).css("top", "10px");
+	}
 	$(ele).attr("src", $(a).attr("href"));
 	$(ele).addClass("previewBox");//set identity
 	$(ele).load(function(){
