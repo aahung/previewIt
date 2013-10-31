@@ -1,3 +1,4 @@
+
 function previewIt(){
 	$("a").hover(function(){
 		var a = this;
@@ -34,5 +35,4 @@ function createPreview(a){
 	debugger;
 }
 previewIt();
-
 
