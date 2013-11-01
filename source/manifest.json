@@ -12,10 +12,10 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["jquery.min.js","main.js"],
+      "js": ["jquery.min.js", "class.js", "main.js"],
       "all_frames": true
     }
   ],
-  "web_accessible_resources": ["jquery.min.js","main.js"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js"],
   "manifest_version": 2
 }
