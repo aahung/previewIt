@@ -1,11 +1,12 @@
 {
   "name": "Preview It!",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.3",
+  "version": "0.5",
   "background": { "scripts": ["background.js"] },
   "permissions": [
     "http://*/*",
     "https://*/*",
+    "background",
     "webRequest",
     "webRequestBlocking"
   ], 
