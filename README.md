@@ -4,5 +4,5 @@
 <h1>Future Plan</h1>
 <ol>
   <li>Drag to move</li>
-  <li>Size changable</li>
+  <li>Size changaeble</li>
 </ol>
