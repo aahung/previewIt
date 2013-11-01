@@ -11,12 +11,12 @@
       <li>Fuck you</li>
       <li>
         <pre>
-          if (ad.exsit == 1){
-            user.hate();
-            if (ad.appearance >= "beauty" && money.making()){
-              console.log("Let's fucking do it!");
-            }
-          }
+if (ad.exsit == 1){
+  user.hate();
+  if (ad.appearance >= "beauty" && money.making()){
+    console.log("Let's fucking do it!");
+  }
+}
         </pre>
       </li>
     </ul>
