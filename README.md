@@ -1,15 +1,4 @@
 <h1>Preview It</h1>
-
-<script>
-var hate=1;
-function hate()
-{ 
-  var adSizePercentage=adSize/window;
-  hate = hate/adSizePercentage - 1;
-  // smaller, hater; adSizePercentage!=1
-}
-</script>
-
 <a href="http://aahung.github.io/previewIt">demo</a>
 <hr/>
 <h1>Future Plan</h1>
@@ -28,7 +17,16 @@ if (ad.exsit == 1){
     console.log("Let's fucking do it!");
   }
 }
-        </pre>
+</pre>
+<pre>
+var hate=1;
+function hate()
+{ 
+  var adSizePercentage=adSize/window;
+  hate = hate/adSizePercentage - 1;
+  // smaller, hater; adSizePercentage!=1
+}
+</pre>
       </li>
     </ul>
   </li>
