@@ -1,4 +1,14 @@
 <h1>Preview It</h1>
+
+<script>
+var hate=1;
+function hate()
+{ 
+  var adSizePercentage=adSize/window;
+  hate = hate/adSizePercentage;
+}
+</script>
+
 <a href="http://aahung.github.io/previewIt">demo</a>
 <hr/>
 <h1>Future Plan</h1>
