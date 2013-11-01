@@ -1,10 +1,10 @@
 {
   "name": "Preview It!",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.1",
+  "version": "0.3",
   "background": { "scripts": ["background.js"] },
   "permissions": [
-    "https://*/*",
+    "http://*/*",
     "https://*/*",
     "webRequest",
     "webRequestBlocking"
@@ -12,8 +12,10 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["jquery.min.js","main.js"]
+      "js": ["jquery.min.js","main.js"],
+      "all_frames": true
     }
   ],
+  "web_accessible_resources": ["jquery.min.js","main.js"],
   "manifest_version": 2
 }
