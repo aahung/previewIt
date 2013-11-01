@@ -30,6 +30,6 @@ function hate()
       </li>
     </ul>
   </li>
-  <li>keydown()/keyup() 1s delay</li>
+  <li>keydown()+mousedown()/keyup()+mouseup() 1s delay</li>
 </ol>
 <p>*** only programmer knows the fun of texting in such way :-) </p>
