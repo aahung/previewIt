@@ -60,5 +60,5 @@ function createPreview(a){
 	});
 	$(a).parent().append(ele);//render the preview box element
 }
-previewIt();
+$(function(){previewIt();});
 
