@@ -65,6 +65,7 @@ previewBox.prototype.render = function(){
 		$(this).css("background", "white");
 	});
 	$("body").append(ele);//render the preview box element
+	$("body").blur();
 }
 previewBox.prototype.destroy = function(){
 	this.ele.remove();
