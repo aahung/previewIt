@@ -5,7 +5,8 @@ var hate=1;
 function hate()
 { 
   var adSizePercentage=adSize/window;
-  hate = hate/adSizePercentage;
+  hate = hate/adSizePercentage - 1;
+  // smaller, hater; adSizePercentage!=1
 }
 </script>
 
