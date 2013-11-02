@@ -167,11 +167,11 @@ function PreviewBox(src){
 
 
 		this.ele = ele;
-		$(eleContainer).append(ele);// add box to box container
 		$(eleContainer).append(eleMenu);//add menu
 		$(eleContainer).append(eleClose);//add close button
 		$(eleContainer).append(eleShare);//add close button
 		$(eleContainer).append(eleMove);//add move button
+		$(eleContainer).append(ele);// add box to box container
 		$("body").append(eleContainer);//render the preview box container
 	}
 	PreviewBox.prototype.destroy = function(){
