@@ -132,7 +132,7 @@ function PreviewBox(src){
 	        winLeft     = ($(window).width()  - winWidth)  / 2,
 	        winTop      = ($(window).height() - winHeight) / 2, 
 	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
-	        window.open('chrome-extension://jpiddemdaoecamgoboklidnollahhgjg/options.html','OptionPage',winOptions);
+	        window.open('chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html','OptionPage',winOptions);
 	        return false;//Please add content here
 		});
 		//below is for move
