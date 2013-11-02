@@ -18,9 +18,11 @@ function Listener(boxCol){
 	Listener.prototype.listenCursor = function(){
 		var mouseX, mouseY;
 		$(window).mousemove(function(e){
-			this.mouseX = e.clientX;
-			this.mouseY = e.clientY;
+			mouseX = e.clientX;
+			mouseY = e.clientY;
 		});
+		this.mouseX = mouseX;
+		this.mouseY = mouseY;
 	}
 	Listener.prototype.listenKeys = function(){
 		var boxCol = this.boxCol; //change to local variable
