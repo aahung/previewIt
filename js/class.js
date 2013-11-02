@@ -19,12 +19,6 @@ function Listener(){
 	}
 	Listener.prototype.listenKeys = function(){
 		var shortupKeyCode;
-		chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-			console.log(sender.tab ?
-			    "from a content script:" + sender.tab.url :
-			    "from the extension");
-			shortupKeyCode = request.keycode;
-		});
 		if(!localStorage["shortup_key_code"]) {
 			shortupKeyCode = 119;
 		}
