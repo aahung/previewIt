@@ -4,6 +4,7 @@
 <h1>Future Plan</h1>
 <ol>
   <li>Drag to move （hold to trigger）左侧加上小方块（container）</li>
+  <li>share button</li>
   <li>用户自定义选项（菜单在小方块里）</li>
   <li>可耻的加点广告？
     <ul>comment
