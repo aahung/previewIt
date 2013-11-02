@@ -110,7 +110,7 @@ function PreviewBox(src){
 		// below is for menu
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu box-btn");
-		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.png';
+		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.svg';
 		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
 		$(eleMenu).click(function(){
 			winWidth    = 650;  
@@ -178,7 +178,7 @@ function PreviewBox(src){
 		$(eleClose).click(function(){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
-		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-normal.svg';
+		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close.svg';
 		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
 		
 

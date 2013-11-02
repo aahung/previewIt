@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1"
-	 id="svg1316" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" sodipodi:version="0.32" sodipodi:docname="closeButton.svg" sodipodi:docbase="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/buttons/src" inkscape:version="0.45.1" inkscape:export-xdpi="90.000000" inkscape:export-ydpi="90.000000" inkscape:export-filename="/home/yana/workspace/sip-communicator-1-0-draft/src/net/java/sip/communicator/impl/gui/resources/buttons/close.png" inkscape:output_extension="org.inkscape.output.svg.inkscape"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
-	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<sodipodi:namedview  inkscape:cy="4.161678" pagecolor="#ffffff" borderopacity="1.0" inkscape:zoom="19.324309" id="base" inkscape:cx="8" bordercolor="#666666" showgrid="true" inkscape:document-units="px" inkscape:grid-bbox="true" inkscape:window-y="0" inkscape:window-height="843" inkscape:current-layer="layer1" inkscape:pageopacity="0.0" inkscape:window-width="1432" inkscape:pageshadow="2" inkscape:window-x="0">
-	</sodipodi:namedview>
-<g>
-	
-		<path id="rect3126" inkscape:export-xdpi="90.000000" inkscape:export-ydpi="90.000000" inkscape:export-filename="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/lookandfeel/deleteRollover.png" fill="#231F20" d="
-		M2.566,0.364h10.865c1.218,0,2.205,0.987,2.205,2.205v10.865c0,1.218-0.987,2.205-2.205,2.205H2.566
-		c-1.218,0-2.205-0.987-2.205-2.205V2.57C0.361,1.352,1.348,0.364,2.566,0.364z"/>
-	<circle fill="#FFFFFF" cx="7.984" cy="3.355" r="1.839"/>
-	<circle fill="#FFFFFF" cx="8" cy="7.818" r="1.839"/>
-	<circle fill="#FFFFFF" cx="8" cy="12.307" r="1.839"/>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px"
+	 height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g id="Layer_2">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="255.9995" y1="442.543" x2="255.9995" y2="67.458">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="0" style="stop-color:#94FFBF"/>
+		<stop  offset="1" style="stop-color:#6AFFF4"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M443.542,433.752c0,4.854-3.937,8.791-8.791,8.791H77.248c-4.855,0-8.791-3.938-8.791-8.791V76.249
+		c0-4.855,3.936-8.791,8.791-8.791h357.503c4.854,0,8.791,3.936,8.791,8.791V433.752z"/>
+</g>
+<g id="Layer_1">
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="255.5005" y1="352.5" x2="255.5005" y2="160.5005">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="0" style="stop-color:#94FFBF"/>
+		<stop  offset="1" style="stop-color:#6AFFF4"/>
+	</linearGradient>
+	<path fill="url(#SVGID_2_)" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M319.5,208.5h-128v96h128V208.5z
+		 M367.5,336.5h-48v16h64v-64h-16V336.5z M319.5,160.5v16h48v48h16v-64H319.5z M143.5,176.5h48v-16h-64v64h16V176.5z M143.5,288.5
+		h-16v64h64v-16h-48V288.5z"/>
 </g>
 </svg>
