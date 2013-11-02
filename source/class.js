@@ -103,11 +103,15 @@ function PreviewBox(src){
 		var windowHeight = $(window).height();
 		var eleContainer = document.createElement("div");
 		this.eleContainer = eleContainer;
+		var thisForClose = this;
 		$(eleContainer).addClass("box-container");
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu");
 		var eleClose = document.createElement('div');
 		$(eleClose).addClass('box-close');
+		$(eleClose).click(function(){
+			$(eleContainer).pop(thisForClose);
+		});
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr("src", this.src);
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
