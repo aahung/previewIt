@@ -188,13 +188,13 @@ function PreviewBox(src){
 
 		// judge the mouse position and set the position of preview box dynamically
 		if (mouseXFuckGlobalVariable < windowWidth / 2){
-			$(eleContainer).css("right", 10* this.layer);
+			$(eleContainer).css("left", windowWidth - 700 - 10* this.layer);
 		}
 		else{
-			$(eleContainer).css("left", 10* this.layer);
+			$(eleContainer).css("left", 10* this.layer + 30);
 		}
 		if (mouseYFuckGlobalVariable < windowHeight / 2){
-			$(eleContainer).css("bottom", 10* this.layer);
+			$(eleContainer).css("top", windowHeight - 10* this.layer - 400);
 		}
 		else{
 			$(eleContainer).css("top", 10* this.layer);
