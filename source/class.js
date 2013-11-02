@@ -118,6 +118,23 @@ function PreviewBox(src){
 		$(eleMove).addClass("box-move box-btn");
 		var moveImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/move.svg';
 		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
+		$(eleMove).mousedown(function(){
+			var mouseXOrigin, mouseYOrigin, xOrigin, yOrigin;
+			mouseXOrigin = mouseXFuckGlobalVariable;
+			mouseYOrigin = mouseYFuckGlobalVariable;
+			xOrigin = $(eleContainer).css("left");
+			yOrigin = $(eleContainer).css('top');
+			$(eleMove).on("mousemove", function(){
+				$(eleContainer).css("left", xOrigin + mouseXFuckGlobalVariable - xOrigin);
+				$(eleContainer).css("left", yOrigin + mouseYFuckGlobalVariable - yOrigin);
+			})
+		});
+		$(eleMove).mouseup(function(){
+			$(eleMove).off("mousemove");
+		});
+
+
+
 
 		//below to share
 		var eleShare = document.createElement("div");
