@@ -47,6 +47,7 @@
 }
 .box-move{
 	bottom:100px;
+	cursor: move;
 }
 #moveMask {
 	position: fixed;
@@ -55,4 +56,5 @@
 	z-index: 9999999;
 	width: 10000px;
 	height: 10000px;
+	cursor: move;
 }
