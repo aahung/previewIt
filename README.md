@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-=======
 <h1>Preview It</h1>
 <a href="http://aahung.github.io/previewIt">demo</a>
 <hr/>
 <h1>Future Plan</h1>
 <ol>
-  <li>Drag to move （hold to trigger）小方块加完了~</li>
+  <li>Drag to move （hold to trigger）左侧加上小方块（container）</li>
   <li>用户自定义选项（菜单在小方块里）</li>
   <li>左侧可以加上关闭的小叉叉</li>
   <li>可耻的加点广告？
@@ -36,6 +34,3 @@ function hate()
   <li>slidedown()+click()/slideup()+click() 1s delay</li>
 </ol>
 <p>*** only programmer knows the fun of texting in such way :-) </p>
-<hr />
-<img src="https://www.google.com.hk/images/nav_logo170_hr.png">
->>>>>>> 40a040a3ed3e7f13c1656afe00ef7361b28cfa1a
