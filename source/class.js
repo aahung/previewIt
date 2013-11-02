@@ -119,18 +119,25 @@ function PreviewBox(src){
 		var moveImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/move.svg';
 		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
 		$(eleMove).mousedown(function(){
+			var mask = document.createElement("div");
+			$(mask).attr('id','moveMask');
+			$("body").append(mask);
 			var mouseXOrigin, mouseYOrigin, xOrigin, yOrigin;
 			mouseXOrigin = mouseXFuckGlobalVariable;
 			mouseYOrigin = mouseYFuckGlobalVariable;
-			xOrigin = $(eleContainer).css("left");
-			yOrigin = $(eleContainer).css('top');
-			$(eleMove).on("mousemove", function(){
-				$(eleContainer).css("left", xOrigin + mouseXFuckGlobalVariable - xOrigin);
-				$(eleContainer).css("left", yOrigin + mouseYFuckGlobalVariable - yOrigin);
+			xOrigin = parseFloat($(eleContainer).css("left"));
+			yOrigin = parseFloat($(eleContainer).css('top'));
+			$(mask).on("mousemove", function(){
+				var left = xOrigin + mouseXFuckGlobalVariable - mouseXOrigin;
+				var top = yOrigin + mouseYFuckGlobalVariable - mouseYOrigin;
+
+				$(eleContainer).css("left", left);
+				$(eleContainer).css("top", top);
 			})
 		});
-		$(eleMove).mouseup(function(){
-			$(eleMove).off("mousemove");
+		$('#moveMask').mouseup(function(){
+			$('#moveMask').off("mousemove");
+			$('#moveMask').remove();
 		});
 
 

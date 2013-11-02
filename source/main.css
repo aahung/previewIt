@@ -47,3 +47,11 @@
 .box-move{
 	top:100px;
 }
+#moveMask {
+	position: fixed;
+	top: -10px;
+	left: -10px;
+	z-index: 9999999;
+	width: 10000px;
+	height: 10000px;
+}
