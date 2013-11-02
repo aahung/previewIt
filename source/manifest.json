@@ -1,7 +1,7 @@
 {
-  "name": "Preview It!",
+  "name": "S-Preview!",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.5",
+  "version": "0.700",
   "background": { "scripts": ["background.js"] },
   "permissions": [
     "http://*/*",

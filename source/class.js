@@ -18,9 +18,22 @@ function Listener(){
 		});
 	}
 	Listener.prototype.listenKeys = function(){
+		var shortupKeyCode;
+		chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+			console.log(sender.tab ?
+			    "from a content script:" + sender.tab.url :
+			    "from the extension");
+			shortupKeyCode = request.keycode;
+		});
+		if(!localStorage["shortup_key_code"]) {
+			shortupKeyCode = 119;
+		}
+		else{
+			shortupKeyCode = localStorage["shortup_key_code"];
+		}
 		$(window).on("keypress", function(e){
 			var key = e.which;
-			if (key == 119 && hoverLinkFuckGlobalVariable != null) {
+			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable != null) {
 				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
 					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
 					boxColFuckGlobalVariable.add(newBox);
@@ -30,7 +43,7 @@ function Listener(){
 					boxColFuckGlobalVariable.pop();
 				}
 			}
-			if (key == 119 && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
+			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
 				boxColFuckGlobalVariable.pop();
 			}
 		});

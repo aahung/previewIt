@@ -1,3 +1,10 @@
+{
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {keycode: localStorage["shortup_key_code"]}, function(response) {
+        console.log(response.farewell);
+      });
+    });
+}
 chrome.webRequest.onHeadersReceived.addListener(
     function(info) {
         var headers = info.responseHeaders;
