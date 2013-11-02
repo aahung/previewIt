@@ -16,17 +16,13 @@ function Listener(boxCol){
 		this.listenLinks();
 	}
 	Listener.prototype.listenCursor = function(){
-		var mouseX, mouseY;
 		$(window).mousemove(function(e){
-			mouseX = e.clientX;
-			mouseY = e.clientY;
+			this.mouseX = e.clientX;
+			this.mouseY = e.clientY;
 		});
-		this.mouseX = mouseX;
-		this.mouseY = mouseY;
 	}
 	Listener.prototype.listenKeys = function(){
 		var boxCol = this.boxCol; //change to local variable
-		var hoverLink = this.hoverLink;
 		$(window).on("keypress", function(e){
 			var key = e.which;
 			if (key == 119 && hoverLink != null) {
@@ -112,9 +108,6 @@ function PreviewBox(src){
 		this.ele = ele;
 		$(ele).attr("src", this.src);
 		$(ele).addClass("preview-box");//set identity
-		var backgroundImageLink = 'chrome-extension://'+ previewItExtensionID +'/loading.gif';
-		$(ele).css("background", "url('" + backgroundImageLink + "')");
-		debugger;
 		$(ele).attr("data-layer", this.layer);//set identity
 		// judge the mouse position and set the position of preview box dynamically
 		if (mouseX < windowWidth / 2){
