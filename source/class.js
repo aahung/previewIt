@@ -111,6 +111,11 @@ function PreviewBox(src){
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu box-btn");
 
+		var eleMove = document.createElement("div");
+		$(eleMove).addClass("box-move box-btn");
+
+		var eleShare = document.createElement("div");
+		$(eleShare).addClass("box-share box-btn");
 
 		var eleClose = document.createElement('div');
 		$(eleClose).addClass('box-close box-btn');
