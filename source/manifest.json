@@ -1,7 +1,7 @@
 {
-  "name": "Preview It!",
+  "name": "S-Preview!",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.5",
+  "version": "0.700",
   "background": { "scripts": ["background.js"] },
   "permissions": [
     "http://*/*",
@@ -10,13 +10,15 @@
     "webRequest",
     "webRequestBlocking"
   ], 
+  "options_page": "options.html",
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
+      "css": ["main.css"],
       "js": ["jquery.min.js", "class.js", "main.js"]
       // "all_frames": true
     }
   ],
-  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close.svg", "menu.svg", "share.svg"],
   "manifest_version": 2
 }

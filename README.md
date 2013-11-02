@@ -4,8 +4,8 @@
 <h1>Future Plan</h1>
 <ol>
   <li>Drag to move （hold to trigger）左侧加上小方块（container）</li>
+  <li>share button</li>
   <li>用户自定义选项（菜单在小方块里）</li>
-  <li>左侧可以加上关闭的小叉叉</li>
   <li>可耻的加点广告？
     <ul>comment
       <li>Fuck you</li>
@@ -34,3 +34,6 @@ function hate()
   <li>slidedown()+click()/slideup()+click() 1s delay</li>
 </ol>
 <p>*** only programmer knows the fun of texting in such way :-) </p>
+<<<<<<< HEAD
+<hr />
+<img src="https://www.google.com.hk/images/nav_logo170_hr.png">

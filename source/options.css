@@ -1,0 +1,28 @@
+div {
+	margin: 0;
+	padding: 0;
+}
+.clear {
+	clear: both;
+}
+.container {
+	margin: auto;
+	width: 700px;
+	border: 1px solid black;
+}
+#left {
+	float: left;
+	width: 500px;
+}
+#right {
+	float: left;
+	width: 200px;
+}
+div.size {
+	float: left;
+	width: 250px;
+}
+div.shortkey {
+	float: left;
+	width: 250px;
+}

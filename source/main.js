@@ -1,6 +1,8 @@
+var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, hoverLinkFuckGlobalVariable, extensionIDFuckGlobalVariable;
 $(function(){
-	var boxCol = new BoxCollection();
-	var listener = new Listener(boxCol);
+	extensionIDFuckGlobalVariable = chrome.i18n.getMessage("@@extension_id");
+	boxColFuckGlobalVariable = new BoxCollection();
+	var listener = new Listener();
 	listener.start();
 });
 

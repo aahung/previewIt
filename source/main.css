@@ -1,0 +1,58 @@
+.box-container {
+	display: none;
+	height: 400px;
+	width: 700px;
+	position: fixed;
+	border: 0;
+	z-index: 999999;
+}
+.preview-box {
+	height: 400px;
+	width: 700px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 999999;
+	box-shadow: 0px 0px 10px 0px black;
+	background: url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif');
+	background-position: center center;
+}
+.box-btn {
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	cursor: pointer;
+	position: absolute;
+	left: -45px;
+	z-index: 999999;
+	background-position: 25px 0px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: background-position 0.4s ease;
+}
+.box-btn:hover {
+	background-position: 0px 0px;
+}
+.box-menu{
+	bottom: 0px;
+}
+.box-close{
+	top: 0px;
+}
+.box-share{
+	bottom:50px;
+}
+.box-move{
+	bottom:100px;
+}
+#moveMask {
+	position: fixed;
+	top: -10px;
+	left: -10px;
+	z-index: 9999999;
+	width: 10000px;
+	height: 10000px;
+}
