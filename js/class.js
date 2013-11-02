@@ -1,72 +1,242 @@
-function boxCollection(){
+//This file includes Listener, BoxCollection and PreviewBox three classes.
+
+// Listener is the trigger to everything. 
+//and the jump out is set in listenKeys(), 
+//because this is the smallest events so that saves resources
+
+function Listener(){
+}
+	Listener.prototype.start = function(){
+		this.listenCursor();
+		this.listenKeys();
+		this.listenLinks();
+	}
+	Listener.prototype.listenCursor = function(){
+		$(window).mousemove(function(e){
+			mouseXFuckGlobalVariable = e.clientX;
+			mouseYFuckGlobalVariable = e.clientY;
+		});
+	}
+	Listener.prototype.listenKeys = function(){
+		var shortupKeyCode;
+		chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+			console.log(sender.tab ?
+			    "from a content script:" + sender.tab.url :
+			    "from the extension");
+			shortupKeyCode = request.keycode;
+		});
+		if(!localStorage["shortup_key_code"]) {
+			shortupKeyCode = 119;
+		}
+		else{
+			shortupKeyCode = localStorage["shortup_key_code"];
+		}
+		$(window).on("keypress", function(e){
+			var key = e.which;
+			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable != null) {
+				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
+					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
+					boxColFuckGlobalVariable.add(newBox);
+					newBox.render();
+				}
+				else {
+					boxColFuckGlobalVariable.pop();
+				}
+			}
+			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
+				boxColFuckGlobalVariable.pop();
+			}
+		});
+	}
+	Listener.prototype.listenLinks = function(){
+		$("a").hover(function(){
+			hoverLinkFuckGlobalVariable = this; 
+		}, function(){
+			hoverLinkFuckGlobalVariable = null;
+		});
+	}
+
+
+
+function BoxCollection(){
 	this.topLayer = 0;
 	this.member = [];
 }
-boxCollection.prototype.add = function(box){
-	this.member.push(box);
-	box.layer = this.topLayer + 1;
-	this.detect();
-}
-boxCollection.prototype.remove = function(box){
-	this.member.pop(box);
-	this.detect();
-}
-boxCollection.prototype.detect = function(){
-	var topLayer = 0;
-	for (var i = 0; i < this.member.length; i ++){
-		if (this.member[i].layer > topLayer)
-			topLayer = this.member[i].layer;
+	BoxCollection.prototype.add = function(box){
+		this.member.push(box);
+		box.layer = this.topLayer + 1;
+		this.detect();
 	}
-	this.topLayer = topLayer;
-}
-boxCollection.prototype.pop = function(){
-	var topBox = this.topBox();
-	this.member.pop(topBox);
-	topBox.destroy();
-	this.detect();
-}
-boxCollection.prototype.topBox = function(){
-	var boxes = this.member;
-	var topLayer = this.topLayer;
-	var topBox = $.grep(boxes, function(n, i){
-		return n.layer == topLayer;
-	});
-	return topBox[0];
-}
-function previewBox(src){
+	BoxCollection.prototype.remove = function(box){
+		this.member.pop(box);
+		this.detect();
+	}
+	BoxCollection.prototype.detect = function(){
+		var topLayer = 0;
+		for (var i = 0; i < this.member.length; i ++){
+			if (this.member[i].layer > topLayer)
+				topLayer = this.member[i].layer;
+		}
+		this.topLayer = topLayer;
+	}
+	BoxCollection.prototype.pop = function(box){
+		if (!box){
+			var topBox = this.topBox();
+			this.member.pop(topBox);
+			topBox.destroy();
+		}
+		else {
+			var index = this.member.indexOf(box);
+			this.member.splice(index, 1);
+			box.destroy();
+		}
+		this.detect();
+	}
+	BoxCollection.prototype.topBox = function(){
+		var boxes = this.member;
+		var topLayer = this.topLayer;
+		var topBox = $.grep(boxes, function(n, i){
+			return n.layer == topLayer;
+		});
+		return topBox[0];
+	}
+
+
+
+function PreviewBox(src){
 	this.src = src;
 	this.layer;
+	this.eleContainer;
+	this.eleMenu;
 	this.ele;
 }
-previewBox.prototype.render = function(){
-	// get browser size
-	var windowWidth = $(window).width();
-	var windowHeight = $(window).height();
-	var ele = document.createElement("iframe");//create preview box element, for future render
-	this.ele = ele;
-	$(ele).attr("src", this.src);
-	$(ele).addClass("previewBox");//set identity
-	$(ele).attr("data-layer", this.layer);//set identity
-	// judge the mouse position and set the position of preview box dynamically
-	if (mouseX < windowWidth / 2){
-		$(ele).css("right", 10* this.layer);
+	PreviewBox.prototype.render = function(){		
+		var thisForClose = this;
+		// get browser size
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+
+
+		var eleContainer = document.createElement("div");
+		this.eleContainer = eleContainer;
+		$(eleContainer).addClass("box-container");
+
+		// below is for menu
+		var eleMenu = document.createElement("div");
+		$(eleMenu).addClass("box-menu box-btn");
+		var menuImageLink = 'menu.svg';
+		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
+		$(eleMenu).click(function(){
+			winWidth    = 650;  
+	        winHeight   = 450;
+	        winLeft     = ($(window).width()  - winWidth)  / 2,
+	        winTop      = ($(window).height() - winHeight) / 2, 
+	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
+	        window.open('chrome-extension://jpiddemdaoecamgoboklidnollahhgjg/options.html','OptionPage',winOptions);
+	        return false;//Please add content here
+		});
+		//below is for move
+		var eleMove = document.createElement("div");
+		$(eleMove).addClass("box-move box-btn");
+		var moveImageLink = 'move.svg';
+		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
+		$(eleMove).mousedown(function(){
+			var mask = document.createElement("div");
+			$(mask).attr('id','moveMask');
+			$("body").append(mask);
+			var mouseXOrigin, mouseYOrigin, xOrigin, yOrigin;
+			mouseXOrigin = mouseXFuckGlobalVariable;
+			mouseYOrigin = mouseYFuckGlobalVariable;
+			xOrigin = parseFloat($(eleContainer).css("left"));
+			yOrigin = parseFloat($(eleContainer).css('top'));
+			$(mask).on("mousemove", function(){
+				var left = xOrigin + mouseXFuckGlobalVariable - mouseXOrigin;
+				var top = yOrigin + mouseYFuckGlobalVariable - mouseYOrigin;
+
+				$(eleContainer).css("left", left);
+				$(eleContainer).css("top", top);
+			})
+		});
+		$(window).mouseup(function(){
+			$('#moveMask').off("mousemove");
+			$('#moveMask').remove();
+		});
+
+
+
+
+		//below to share(finished)
+		var eleShare = document.createElement("div");
+		$(eleShare).addClass("box-share box-btn");
+		var shareImageLink = 'share.svg';
+		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
+		$(eleShare).click(function(){
+			var pageTitle = document.title; //HTML page title
+			var pageUrl = thisForClose.src; //Location of the page
+			var openLink = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
+			//Parameters for the Popup window
+	        winWidth    = 650;  
+	        winHeight   = 450;
+	        winLeft     = ($(window).width()  - winWidth)  / 2,
+	        winTop      = ($(window).height() - winHeight) / 2, 
+	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
+	        
+	        //open Popup window and redirect user to share website.
+	        window.open(openLink,'Share This Link',winOptions);
+	        return false;
+		});
+
+		// on click close button, close the box(finished)
+		var eleClose = document.createElement('div');
+		$(eleClose).addClass('box-close box-btn');
+		$(eleClose).click(function(){
+			boxColFuckGlobalVariable.pop(thisForClose);
+		});
+		var closeNormalImageLink = 'close.svg';
+		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
+		
+
+
+		var ele = document.createElement("iframe");//create preview box element, for future render
+		$(ele).attr("src", this.src);
+		var loadingImageLink = 'loading.gif';
+		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
+		$(ele).addClass("preview-box");//set identity
+		$(ele).attr("data-layer", this.layer);//set identity
+
+
+		// 华丽的分割线------------------------------------------
+
+		// judge the mouse position and set the position of preview box dynamically
+		if (mouseXFuckGlobalVariable < windowWidth / 2){
+			$(eleContainer).css("left", windowWidth - 700 - 10* this.layer);
+		}
+		else{
+			$(eleContainer).css("left", 10* this.layer + 30);
+		}
+		if (mouseYFuckGlobalVariable < windowHeight / 2){
+			$(eleContainer).css("top", windowHeight - 10* this.layer - 400);
+		}
+		else{
+			$(eleContainer).css("top", 10* this.layer);
+		}
+		$(ele).load(function(){
+			$(this).css("background", "white");
+		});
+
+
+		// 华丽的分割线------------------------------------------
+
+
+		this.ele = ele;
+		$(eleContainer).append(eleMenu);//add menu
+		$(eleContainer).append(eleClose);//add close button
+		$(eleContainer).append(eleShare);//add close button
+		$(eleContainer).append(eleMove);//add move button
+		$(eleContainer).append(ele);// add box to box container
+		$("body").append(eleContainer);//render the preview box container
+		$(eleContainer).fadeIn(200);
 	}
-	else{
-		$(ele).css("left", 10* this.layer);
+	PreviewBox.prototype.destroy = function(){
+		$(this.eleContainer).fadeOut(200);
 	}
-	if (mouseY < windowHeight / 2){
-		$(ele).css("bottom", 10* this.layer);
-	}
-	else{
-		$(ele).css("top", 10* this.layer);
-	}
-	$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "999999", "box-shadow": "0px 0px 10px 0px black", "background": "url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif')", "background-position": "center center"});
-	$(ele).load(function(){
-		$(this).css("background", "white");
-	});
-	$("body").append(ele);//render the preview box element
-	$("body").blur();
-}
-previewBox.prototype.destroy = function(){
-	this.ele.remove();
-}

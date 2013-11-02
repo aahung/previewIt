@@ -11,6 +11,7 @@ $(function(){
 		data: "check update",
      })
 	.done(function(data) {
+		
 		console.log(data);
 		if (data.substring(0, 3) != '"hi'){
 			alert(data);
@@ -20,3 +21,4 @@ $(function(){
 		console.log('fail to check update.');
 	});
 });
+
