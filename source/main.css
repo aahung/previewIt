@@ -29,3 +29,13 @@
 	left: -30px;
 	z-index: 999999;
 }
+.box-close{
+	width: 30px;
+	height: 30px;
+	margin 0;
+	background: black;
+	position: absolute;
+	top: 30px;
+	left: -30px;
+	z-index: 999999;
+}
