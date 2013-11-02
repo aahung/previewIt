@@ -1,11 +1,9 @@
 .box-container {
 	height: 400px;
-	width: 710px;
+	width: 700px;
 	position: fixed;
 	border: 0;
 	z-index: 999999;
-	pointer-events: none;
-	overflow: hidden;
 }
 .preview-box {
 	height: 400px;
@@ -22,11 +20,12 @@
 	background-position: center center;
 }
 .box-menu {
-	width: 10px;
-	height: 10px;
+	width: 30px;
+	height: 30px;
 	margin: 0;
+	background: black;
 	position: absolute;
 	top: 0;
-	left: 0;
-	background: yellow;
+	left: -30px;
+	z-index: 999999;
 }

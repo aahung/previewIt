@@ -125,8 +125,8 @@ function PreviewBox(src){
 		$(ele).load(function(){
 			$(this).css("background", "white");
 		});
-		$(eleContainer).append(eleMenu);
 		$(eleContainer).append(ele);// add box to box container
+		$(eleContainer).append(eleMenu);//add menu
 		$("body").append(eleContainer);//render the preview box container
 	}
 	PreviewBox.prototype.destroy = function(){
