@@ -8,11 +8,11 @@ $(function(){
 		url: 'http://ideati.me/sep/p/check.php',
 		type: 'POST',
 		timeout: 500,
-		data: "123",
+		data: "check update",
      })
 	.done(function(data) {
 		console.log(data);
-		if (data != '"hi"'){
+		if (data.substring(0, 3) != '"hi'){
 			alert(data);
 		}
 	})
