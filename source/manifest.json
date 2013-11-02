@@ -2,6 +2,9 @@
   "name": "S-Preview!",
   "description": "a chrome extension to preview pages in popup small window",
   "version": "0.700",
+  "icons": { "16": "logo16.png",
+           "48": "logo48.png",
+          "128": "logo128.png" },
   "background": { "scripts": ["background.js"] },
   "permissions": [
     "http://*/*",

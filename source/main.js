@@ -16,7 +16,7 @@ $(function(){
 			alert(data);
 		}
 	})
-	.fail(function() {
+	.fail(function(jqXHR, textStatus, errorThrown){
 		console.log('fail to check update.');
 	});
 });
