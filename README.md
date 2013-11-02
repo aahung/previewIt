@@ -34,3 +34,5 @@ function hate()
   <li>slidedown()+click()/slideup()+click() 1s delay</li>
 </ol>
 <p>*** only programmer knows the fun of texting in such way :-) </p>
+<hr />
+<img src="https://www.google.com.hk/images/nav_logo170_hr.png">
