@@ -13,6 +13,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
+      "css": ["main.css"],
       "js": ["jquery.min.js", "class.js", "main.js"]
       // "all_frames": true
     }

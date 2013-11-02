@@ -1,0 +1,32 @@
+.box-container {
+	height: 400px;
+	width: 710px;
+	position: fixed;
+	border: 0;
+	z-index: 999999;
+	pointer-events: none;
+	overflow: hidden;
+}
+.preview-box {
+	height: 400px;
+	width: 700px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 999999;
+	box-shadow: 0px 0px 10px 0px black;
+	background: url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif');
+	background-position: center center;
+}
+.box-menu {
+	width: 10px;
+	height: 10px;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: yellow;
+}

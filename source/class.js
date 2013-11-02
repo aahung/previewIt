@@ -91,37 +91,45 @@ function BoxCollection(){
 function PreviewBox(src){
 	this.src = src;
 	this.layer;
+	this.eleContainer;
+	this.eleMenu;
 	this.ele;
 }
 	PreviewBox.prototype.render = function(){
 		// get browser size
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
+		var eleContainer = document.createElement("div");
+		this.eleContainer = eleContainer;
+		$(eleContainer).addClass("box-container");
+		var eleMenu = document.createElement("div");
+		$(eleMenu).addClass("box-menu");
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		this.ele = ele;
 		$(ele).attr("src", this.src);
-		$(ele).addClass("PreviewBox");//set identity
+		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
 		// judge the mouse position and set the position of preview box dynamically
 		if (mouseX < windowWidth / 2){
-			$(ele).css("right", 10* this.layer);
+			$(eleContainer).css("right", 10* this.layer);
 		}
 		else{
-			$(ele).css("left", 10* this.layer);
+			$(eleContainer).css("left", 10* this.layer);
 		}
 		if (mouseY < windowHeight / 2){
-			$(ele).css("bottom", 10* this.layer);
+			$(eleContainer).css("bottom", 10* this.layer);
 		}
 		else{
-			$(ele).css("top", 10* this.layer);
+			$(eleContainer).css("top", 10* this.layer);
 		}
-		$(ele).css({"height": "400px", "width": "700px", "position": "fixed", "border": "0px", "z-index": "999999", "box-shadow": "0px 0px 10px 0px black", "background": "url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif')", "background-position": "center center"});
 		$(ele).load(function(){
 			$(this).css("background", "white");
 		});
-		$("body").append(ele);//render the preview box element
-		$("body").blur();
+		$(eleContainer).append(eleMenu);
+		$(eleContainer).append(ele);// add box to box container
+		$("body").append(eleContainer);//render the preview box container
 	}
 	PreviewBox.prototype.destroy = function(){
 		this.ele.remove();
+		this.eleContainer.remove();
 	}
