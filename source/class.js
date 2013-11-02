@@ -118,7 +118,7 @@ function PreviewBox(src){
 	        winLeft     = ($(window).width()  - winWidth)  / 2,
 	        winTop      = ($(window).height() - winHeight) / 2, 
 	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
-	        
+	        window.document.createElement("iframe");//Please add content here
 		});
 		//below is for move
 		var eleMove = document.createElement("div");
