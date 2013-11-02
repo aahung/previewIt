@@ -68,10 +68,15 @@ function BoxCollection(){
 		}
 		this.topLayer = topLayer;
 	}
-	BoxCollection.prototype.pop = function(){
-		var topBox = this.topBox();
-		this.member.pop(topBox);
-		topBox.destroy();
+	BoxCollection.prototype.pop = function(box){
+		if (!box){
+			var topBox = this.topBox();
+			this.member.pop(topBox);
+			topBox.destroy();
+		}
+		else {
+			this.member.pop(box);
+		}
 		this.detect();
 	}
 	BoxCollection.prototype.topBox = function(){
