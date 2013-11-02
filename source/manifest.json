@@ -18,6 +18,6 @@
       // "all_frames": true
     }
   ],
-  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close-normal.svg"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close-normal.svg", "menu.png", "share.svg"],
   "manifest_version": 2
 }

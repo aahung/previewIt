@@ -2,21 +2,18 @@
 <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
-	 id="svg1316" inkscape:export-xdpi="90.000000" inkscape:version="0.45.1" sodipodi:docbase="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/buttons/src" sodipodi:docname="closeButton.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape" inkscape:export-filename="/home/yana/workspace/sip-communicator-1-0-draft/src/net/java/sip/communicator/impl/gui/resources/buttons/close.png" inkscape:export-ydpi="90.000000" sodipodi:version="0.32" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	 id="svg1316" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" sodipodi:version="0.32" sodipodi:docname="closeButton.svg" sodipodi:docbase="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/buttons/src" inkscape:version="0.45.1" inkscape:export-xdpi="90.000000" inkscape:export-ydpi="90.000000" inkscape:export-filename="/home/yana/workspace/sip-communicator-1-0-draft/src/net/java/sip/communicator/impl/gui/resources/buttons/close.png" inkscape:output_extension="org.inkscape.output.svg.inkscape"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
 	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<sodipodi:namedview  inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:current-layer="layer1" inkscape:grid-bbox="true" inkscape:document-units="px" inkscape:window-width="1432" inkscape:window-x="0" inkscape:window-height="843" inkscape:window-y="0" showgrid="true" bordercolor="#666666" borderopacity="1.0" pagecolor="#ffffff" inkscape:cy="4.161678" id="base" inkscape:zoom="19.324309" inkscape:cx="8">
+<sodipodi:namedview  inkscape:cy="4.161678" pagecolor="#ffffff" borderopacity="1.0" inkscape:zoom="19.324309" id="base" inkscape:cx="8" bordercolor="#666666" showgrid="true" inkscape:document-units="px" inkscape:grid-bbox="true" inkscape:window-y="0" inkscape:window-height="843" inkscape:current-layer="layer1" inkscape:pageopacity="0.0" inkscape:window-width="1432" inkscape:pageshadow="2" inkscape:window-x="0">
 	</sodipodi:namedview>
 <g>
 	
-		<path id="rect3126" inkscape:export-xdpi="90.000000" inkscape:export-filename="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/lookandfeel/deleteRollover.png" inkscape:export-ydpi="90.000000" fill="#231F20" d="
+		<path id="rect3126" inkscape:export-xdpi="90.000000" inkscape:export-ydpi="90.000000" inkscape:export-filename="/home/yana/workspace/IPPISVN/src/net/java/sip/communicator/impl/gui/resources/lookandfeel/deleteRollover.png" fill="#231F20" d="
 		M2.566,0.364h10.865c1.218,0,2.205,0.987,2.205,2.205v10.865c0,1.218-0.987,2.205-2.205,2.205H2.566
 		c-1.218,0-2.205-0.987-2.205-2.205V2.57C0.361,1.352,1.348,0.364,2.566,0.364z"/>
-	
-		<circle fill="#FFFFFF" stroke="#474747" stroke-width="0.7161" stroke-linecap="round" stroke-linejoin="round" cx="8" cy="3.816" r="1.056"/>
-	
-		<circle fill="#FFFFFF" stroke="#474747" stroke-width="0.7161" stroke-linecap="round" stroke-linejoin="round" cx="7.998" cy="8.002" r="1.056"/>
-	
-		<circle fill="#FFFFFF" stroke="#474747" stroke-width="0.7161" stroke-linecap="round" stroke-linejoin="round" cx="8" cy="12.243" r="1.056"/>
+	<circle fill="#FFFFFF" cx="7.984" cy="3.355" r="1.839"/>
+	<circle fill="#FFFFFF" cx="8" cy="7.818" r="1.839"/>
+	<circle fill="#FFFFFF" cx="8" cy="12.307" r="1.839"/>
 </g>
 </svg>

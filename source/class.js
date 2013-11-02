@@ -110,12 +110,18 @@ function PreviewBox(src){
 
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu box-btn");
+		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.png';
+		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
 
 		var eleMove = document.createElement("div");
 		$(eleMove).addClass("box-move box-btn");
+		var moveImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/move.svg';
+		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
 
 		var eleShare = document.createElement("div");
 		$(eleShare).addClass("box-share box-btn");
+		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
+		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
 
 		var eleClose = document.createElement('div');
 		$(eleClose).addClass('box-close box-btn');
@@ -164,6 +170,8 @@ function PreviewBox(src){
 		$(eleContainer).append(ele);// add box to box container
 		$(eleContainer).append(eleMenu);//add menu
 		$(eleContainer).append(eleClose);//add close button
+		$(eleContainer).append(eleShare);//add close button
+		$(eleContainer).append(eleMove);//add move button
 		$("body").append(eleContainer);//render the preview box container
 	}
 	PreviewBox.prototype.destroy = function(){
