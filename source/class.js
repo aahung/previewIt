@@ -101,12 +101,18 @@ function PreviewBox(src){
 		$(eleContainer).addClass("box-container");
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu");
+		var eleClose = document.createElement('div');
+		$(eleClose).addClass('box-close');
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr("src", this.src);
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
 		$(ele).css('background', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
+
+
+		// 华丽的分割线------------------------------------------
+
 		// judge the mouse position and set the position of preview box dynamically
 		if (mouseXFuckGlobalVariable < windowWidth / 2){
 			$(eleContainer).css("right", 10* this.layer);
@@ -123,9 +129,15 @@ function PreviewBox(src){
 		$(ele).load(function(){
 			$(this).css("background", "white");
 		});
+
+
+		// 华丽的分割线------------------------------------------
+
+
 		this.ele = ele;
 		$(eleContainer).append(ele);// add box to box container
 		$(eleContainer).append(eleMenu);//add menu
+		$(eleContainer).append(eleClose);//add close button
 		$("body").append(eleContainer);//render the preview box container
 	}
 	PreviewBox.prototype.destroy = function(){
