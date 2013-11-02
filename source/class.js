@@ -109,11 +109,11 @@ function PreviewBox(src){
 
 
 		var eleMenu = document.createElement("div");
-		$(eleMenu).addClass("box-menu");
+		$(eleMenu).addClass("box-menu box-btn");
 
 
 		var eleClose = document.createElement('div');
-		$(eleClose).addClass('box-close');
+		$(eleClose).addClass('box-close box-btn');
 		// on click close button, close the box
 		var thisForClose = this;
 		$(eleClose).click(function(){
@@ -122,11 +122,7 @@ function PreviewBox(src){
 		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-normal.svg';
 		var closeHoverImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-hover.svg';
 		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
-		$(eleClose).hover(function(){
-			$(this).css("background-image", 'url(' + closeHoverImageLink + ')');
-		}, function(){
-			$(this).css("background-image", 'url(' + closeNormalImageLink + ')');
-		});
+		
 
 
 		var ele = document.createElement("iframe");//create preview box element, for future render

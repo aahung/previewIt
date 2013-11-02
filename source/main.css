@@ -19,6 +19,13 @@
 	background: url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif');
 	background-position: center center;
 }
+.box-btn {
+	background-position: 10px 0px;
+	transition: background-position 0.4s ease;
+}
+.box-btn:hover {
+	background-position: 0px 0px;
+}
 .box-menu {
 	width: 30px;
 	height: 30px;
