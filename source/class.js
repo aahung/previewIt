@@ -97,7 +97,8 @@ function PreviewBox(src){
 	this.eleMenu;
 	this.ele;
 }
-	PreviewBox.prototype.render = function(){
+	PreviewBox.prototype.render = function(){		
+		var thisForClose = this;
 		// get browser size
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
@@ -157,7 +158,7 @@ function PreviewBox(src){
 		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
 		$(eleShare).click(function(){
 			var pageTitle = document.title; //HTML page title
-			var pageUrl = location.href; //Location of the page
+			var pageUrl = thisForClose.src; //Location of the page
 			var openLink = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
 			//Parameters for the Popup window
 	        winWidth    = 650;  
@@ -173,8 +174,7 @@ function PreviewBox(src){
 
 		// on click close button, close the box(finished)
 		var eleClose = document.createElement('div');
-		$(eleClose).addClass('box-close box-btn');		
-		var thisForClose = this;
+		$(eleClose).addClass('box-close box-btn');
 		$(eleClose).click(function(){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
