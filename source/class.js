@@ -124,6 +124,21 @@ function PreviewBox(src){
 		$(eleShare).addClass("box-share box-btn");
 		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
 		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
+		$(eleShare).click(function(){
+			var pageTitle = document.title; //HTML page title
+			var pageUrl = location.href; //Location of the page
+			var openLink = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
+			//Parameters for the Popup window
+	        winWidth    = 650;  
+	        winHeight   = 450;
+	        winLeft     = ($(window).width()  - winWidth)  / 2,
+	        winTop      = ($(window).height() - winHeight) / 2, 
+	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
+	        
+	        //open Popup window and redirect user to share website.
+	        window.open(openLink,'Share This Link',winOptions);
+	        return false;
+		});
 
 		// on click close button, close the box
 		var eleClose = document.createElement('div');
