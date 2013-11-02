@@ -4,8 +4,7 @@
 //and the jump out is set in listenKeys(), 
 //because this is the smallest events so that saves resources
 
-function Listener(boxCol){
-	this.boxCol = boxCol;
+function Listener(){
 }
 	Listener.prototype.start = function(){
 		this.listenCursor();
@@ -19,21 +18,20 @@ function Listener(boxCol){
 		});
 	}
 	Listener.prototype.listenKeys = function(){
-		var boxCol = this.boxCol; //change to local variable
 		$(window).on("keypress", function(e){
 			var key = e.which;
 			if (key == 119 && hoverLinkFuckGlobalVariable != null) {
-				if (boxCol.member.length == 0 || boxCol.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
+				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
 					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
-					boxCol.add(newBox);
+					boxColFuckGlobalVariable.add(newBox);
 					newBox.render();
 				}
 				else {
-					boxCol.pop();
+					boxColFuckGlobalVariable.pop();
 				}
 			}
-			if (key == 119 && hoverLinkFuckGlobalVariable == null && boxCol.member.length != 0) {
-				boxCol.pop();
+			if (key == 119 && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
+				boxColFuckGlobalVariable.pop();
 			}
 		});
 	}
@@ -76,6 +74,7 @@ function BoxCollection(){
 		}
 		else {
 			this.member.pop(box);
+			box.destroy();
 		}
 		this.detect();
 	}
@@ -101,17 +100,26 @@ function PreviewBox(src){
 		// get browser size
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
+
+
 		var eleContainer = document.createElement("div");
 		this.eleContainer = eleContainer;
-		var thisForClose = this;
 		$(eleContainer).addClass("box-container");
+
+
 		var eleMenu = document.createElement("div");
 		$(eleMenu).addClass("box-menu");
+
+
 		var eleClose = document.createElement('div');
 		$(eleClose).addClass('box-close');
+		// on click close button, close the box
+		var thisForClose = this;
 		$(eleClose).click(function(){
-			$(eleContainer).pop(thisForClose);
+			boxColFuckGlobalVariable.pop(thisForClose);
 		});
+
+
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr("src", this.src);
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
