@@ -18,6 +18,6 @@
       // "all_frames": true
     }
   ],
-  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif"],
   "manifest_version": 2
 }
