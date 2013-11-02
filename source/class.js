@@ -136,7 +136,7 @@ function PreviewBox(src){
 
 
 
-		//below to share
+		//below to share(finished)
 		var eleShare = document.createElement("div");
 		$(eleShare).addClass("box-share box-btn");
 		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
@@ -157,7 +157,7 @@ function PreviewBox(src){
 	        return false;
 		});
 
-		// on click close button, close the box
+		// on click close button, close the box(finished)
 		var eleClose = document.createElement('div');
 		$(eleClose).addClass('box-close box-btn');		
 		var thisForClose = this;
