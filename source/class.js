@@ -112,7 +112,14 @@ function PreviewBox(src){
 		$(eleMenu).addClass("box-menu box-btn");
 		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.png';
 		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
-
+		$(eleMenu).click(function(){
+			winWidth    = 650;  
+	        winHeight   = 450;
+	        winLeft     = ($(window).width()  - winWidth)  / 2,
+	        winTop      = ($(window).height() - winHeight) / 2, 
+	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
+	        
+		});
 		//below is for move
 		var eleMove = document.createElement("div");
 		$(eleMove).addClass("box-move box-btn");
