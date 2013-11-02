@@ -135,7 +135,7 @@ function PreviewBox(src){
 				$(eleContainer).css("top", top);
 			})
 		});
-		$('#moveMask').mouseup(function(){
+		$(window).mouseup(function(){
 			$('#moveMask').off("mousemove");
 			$('#moveMask').remove();
 		});
