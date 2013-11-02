@@ -120,7 +120,6 @@ function PreviewBox(src){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
 		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-normal.svg';
-		var closeHoverImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-hover.svg';
 		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
 		
 
