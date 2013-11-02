@@ -21,14 +21,14 @@
 	background-position: center center;
 }
 .box-btn {
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 50px;
 	margin: 0;
 	cursor: pointer;
 	position: absolute;
-	left: -30px;
+	left: -45px;
 	z-index: 999999;
-	background-position: 10px 0px;
+	background-position: 25px 0px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	transition: background-position 0.4s ease;
@@ -37,16 +37,16 @@
 	background-position: 0px 0px;
 }
 .box-menu{
-	top: 40px;
+	bottom: 0px;
 }
 .box-close{
 	top: 0px;
 }
 .box-share{
-	top:70px;
+	bottom:50px;
 }
 .box-move{
-	top:100px;
+	bottom:100px;
 }
 #moveMask {
 	position: fixed;
