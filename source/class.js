@@ -222,9 +222,8 @@ function PreviewBox(src){
 		$(eleContainer).append(eleMove);//add move button
 		$(eleContainer).append(ele);// add box to box container
 		$("body").append(eleContainer);//render the preview box container
-		$(eleContainer).fadeIn();
+		$(eleContainer).fadeIn(200);
 	}
 	PreviewBox.prototype.destroy = function(){
-		this.ele.remove();
-		this.eleContainer.remove();
+		$(this.eleContainer).fadeOut(200);
 	}
