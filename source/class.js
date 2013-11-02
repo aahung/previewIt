@@ -5,9 +5,6 @@
 //because this is the smallest events so that saves resources
 
 function Listener(boxCol){
-	this.hoverLink;
-	this.mouseX;
-	this.mouseY;
 	this.boxCol = boxCol;
 }
 	Listener.prototype.start = function(){
@@ -17,17 +14,17 @@ function Listener(boxCol){
 	}
 	Listener.prototype.listenCursor = function(){
 		$(window).mousemove(function(e){
-			this.mouseX = e.clientX;
-			this.mouseY = e.clientY;
+			mouseXFuckGlobalVariable = e.clientX;
+			mouseYFuckGlobalVariable = e.clientY;
 		});
 	}
 	Listener.prototype.listenKeys = function(){
 		var boxCol = this.boxCol; //change to local variable
 		$(window).on("keypress", function(e){
 			var key = e.which;
-			if (key == 119 && hoverLink != null) {
-				if (boxCol.member.length == 0 || boxCol.topBox().src != $(hoverLink).attr('href')){
-					var newBox = new PreviewBox($(hoverLink).attr('href'));
+			if (key == 119 && hoverLinkFuckGlobalVariable != null) {
+				if (boxCol.member.length == 0 || boxCol.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
+					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
 					boxCol.add(newBox);
 					newBox.render();
 				}
@@ -35,16 +32,16 @@ function Listener(boxCol){
 					boxCol.pop();
 				}
 			}
-			if (key == 119 && hoverLink == null && boxCol.member.length != 0) {
+			if (key == 119 && hoverLinkFuckGlobalVariable == null && boxCol.member.length != 0) {
 				boxCol.pop();
 			}
 		});
 	}
 	Listener.prototype.listenLinks = function(){
 		$("a").hover(function(){
-			hoverLink = this; 
+			hoverLinkFuckGlobalVariable = this; 
 		}, function(){
-			hoverLink = null;
+			hoverLinkFuckGlobalVariable = null;
 		});
 	}
 
@@ -110,13 +107,13 @@ function PreviewBox(src){
 		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
 		// judge the mouse position and set the position of preview box dynamically
-		if (mouseX < windowWidth / 2){
+		if (mouseXFuckGlobalVariable < windowWidth / 2){
 			$(eleContainer).css("right", 10* this.layer);
 		}
 		else{
 			$(eleContainer).css("left", 10* this.layer);
 		}
-		if (mouseY < windowHeight / 2){
+		if (mouseYFuckGlobalVariable < windowHeight / 2){
 			$(eleContainer).css("bottom", 10* this.layer);
 		}
 		else{
