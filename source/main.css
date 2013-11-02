@@ -32,8 +32,10 @@
 .box-close{
 	width: 30px;
 	height: 30px;
+	cursor: pointer;
 	margin 0;
-	background: black;
+	background-size: contain;
+	background-repeat: no-repeat;
 	position: absolute;
 	top: 0px;
 	left: -30px;

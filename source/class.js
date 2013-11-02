@@ -73,7 +73,8 @@ function BoxCollection(){
 			topBox.destroy();
 		}
 		else {
-			this.member.pop(box);
+			var index = this.member.indexOf(box);
+			this.member.splice(index, 1);
 			box.destroy();
 		}
 		this.detect();
@@ -118,12 +119,20 @@ function PreviewBox(src){
 		$(eleClose).click(function(){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
+		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-normal.svg';
+		var closeHoverImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close-hover.svg';
+		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
+		$(eleClose).hover(function(){
+			$(this).css("background-image", 'url(' + closeHoverImageLink + ')');
+		}, function(){
+			$(this).css("background-image", 'url(' + closeNormalImageLink + ')');
+		});
 
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr("src", this.src);
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
-		$(ele).css('background', 'url(' + loadingImageLink + ')');
+		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
 
