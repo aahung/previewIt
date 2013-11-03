@@ -58,3 +58,29 @@
 	height: 10000px;
 	cursor: move;
 }
+
+.pi-message-box {
+	position: fixed;
+	bottom: 0px;
+	left: 10px;
+	width: 300px;
+	z-index: 99999999;
+	display: none;
+	background-color: white;
+	box-shadow: 0px 0px 10px 0px black;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.pi-message-box h3 {
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+.pi-message-box p {
+	margin-top: 8px;
+	margin-bottom: 6px;
+}
+.pi-message-box small {
+	text-align: right;
+}
+

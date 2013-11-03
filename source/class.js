@@ -241,3 +241,22 @@ function PreviewBox(src){
 	PreviewBox.prototype.destroy = function(){
 		$(this.eleContainer).fadeOut(200);
 	}
+
+function MessageBox(title, body, footer){
+	this.title = title;
+	this.body = body;
+	this.footer = footer;
+	this.ele;
+}
+	MessageBox.prototype.render = function(){
+		var htmlStr = '<h3>' + this.title + '</h3><p>' + this.body + '</p><small>' + this.footer + '</small>';
+		var mb = document.createElement('div');
+		$(mb).addClass('pi-message-box');
+		$(mb).html(htmlStr);
+		this.ele = mb;
+		$('body').append(mb);
+		$(mb).slideDown(1000);
+	}
+	MessageBox.prototype.destroy = function(){
+		$(this.ele).slideUp(1000);
+	}
