@@ -33,7 +33,8 @@ function Listener(){
 		}
 		$(window).on("keypress", function(e){
 			var key = e.which;
-			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable != null) {
+			var isInputing = ($("input:focus").length > 0) || ($("textarea:focus").length > 0);
+			if ((!isInputing) && key == shortupKeyCode && hoverLinkFuckGlobalVariable != null) {
 				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
 					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
 					boxColFuckGlobalVariable.add(newBox);
@@ -43,7 +44,7 @@ function Listener(){
 					boxColFuckGlobalVariable.pop();
 				}
 			}
-			if (key == shortupKeyCode && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
+			if ((!isInputing) && key == shortupKeyCode && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
 				boxColFuckGlobalVariable.pop();
 			}
 		});
