@@ -123,7 +123,7 @@ function PreviewBox(src){
 
 		// below is for menu
 		var eleMenu = document.createElement("div");
-		$(eleMenu).addClass("box-menu box-btn");
+		$(eleMenu).addClass("box-menu box-btn").attr('title', 'options');
 		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.svg';
 		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
 		$(eleMenu).click(function(){
@@ -137,7 +137,7 @@ function PreviewBox(src){
 		});
 		//below is for move
 		var eleMove = document.createElement("div");
-		$(eleMove).addClass("box-move box-btn");
+		$(eleMove).addClass("box-move box-btn").attr('title', 'drag to move');
 		var moveImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/move.svg';
 		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
 		$(eleMove).mousedown(function(){
@@ -167,7 +167,7 @@ function PreviewBox(src){
 
 		//below to share(finished)
 		var eleShare = document.createElement("div");
-		$(eleShare).addClass("box-share box-btn");
+		$(eleShare).addClass("box-share box-btn").attr('title', 'share to Facebook');
 		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
 		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
 		$(eleShare).click(function(){
@@ -188,7 +188,7 @@ function PreviewBox(src){
 
 		// on click close button, close the box(finished)
 		var eleClose = document.createElement('div');
-		$(eleClose).addClass('box-close box-btn');
+		$(eleClose).addClass('box-close box-btn').attr('title', 'close');
 		$(eleClose).click(function(){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
