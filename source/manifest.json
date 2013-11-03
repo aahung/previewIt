@@ -1,5 +1,5 @@
 {
-  "name": "S-Preview!",
+  "name": "Preview It",
   "description": "a chrome extension to preview pages in popup small window",
   "version": "0.700",
   "icons": { "16": "logo16.png",
