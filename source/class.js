@@ -5,8 +5,12 @@
 //because this is the smallest events so that saves resources
 
 function Listener(){
+	this.shortupKeyCode = 119;
 }
-	Listener.prototype.start = function(){
+	Listener.prototype.start = function(shortupKeyCode){
+		if (shortupKeyCode){
+			this.shortupKeyCode = shortupKeyCode;
+		}
 		this.listenCursor();
 		this.listenKeys();
 		this.listenLinks();
@@ -18,19 +22,7 @@ function Listener(){
 		});
 	}
 	Listener.prototype.listenKeys = function(){
-		var shortupKeyCode;
-		chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-			console.log(sender.tab ?
-			    "from a content script:" + sender.tab.url :
-			    "from the extension");
-			shortupKeyCode = request.keycode;
-		});
-		if(!localStorage["shortup_key_code"]) {
-			shortupKeyCode = 119;
-		}
-		else{
-			shortupKeyCode = localStorage["shortup_key_code"];
-		}
+		var shortupKeyCode = this.shortupKeyCode;
 		$(window).on("keypress", function(e){
 			var key = e.which;
 			var isInputing = ($("input:focus").length > 0) || ($("textarea:focus").length > 0);

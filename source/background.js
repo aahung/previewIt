@@ -1,10 +1,17 @@
-{
+function trigger(){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {keycode: localStorage["shortup_key_code"]}, function(response) {
-        console.log(response.farewell);
-      });
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: 'start',
+            keyCode: localStorage["shortup_key_code"]
+        }, function(response) {
+            if (response.farewell == "Copy Sir!"){
+                console.log(response.farewell);
+            }
+        });
     });
 }
+var interval = window.setInterval(function(){trigger();}, 1000);
+
 chrome.webRequest.onHeadersReceived.addListener(
     function(info) {
         var headers = info.responseHeaders;
