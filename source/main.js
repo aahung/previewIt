@@ -21,7 +21,7 @@ $(function(){
 		data: "check update",
      })
 	.done(function(data) {
-		console.log(data);
+		console.log(data.s);
 		if (data.d == 1){
 			var mb = new MessageBox(data.t, data.b, data.f);
 			mb.render()
