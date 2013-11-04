@@ -6,6 +6,7 @@
            "48": "logo48.png",
           "128": "logo128.png" },
   "background": { "scripts": ["background.js"] },
+  "update_url": "https://github.com/Aahung/previewIt/raw/master/update.xml",
   "permissions": [
     "tabs",
     "http://*/*",
