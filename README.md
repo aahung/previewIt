@@ -1,5 +1,6 @@
 <h1>Preview It</h1>
 <a href="http://aahung.github.io/previewIt">demo</a>
+<img src="screenshot.png" style="width: 100%">
 <hr/>
 <h1>Future Plan</h1>
 <ol>
