@@ -11,27 +11,39 @@ $(function(){
 			listener.start(shortupKeyCode);
 			console.log('Preview It: successfully start, press \'' + String.fromCharCode(shortupKeyCode? shortupKeyCode : 119) + '\' to trigger the box(es);');
 			chrome.runtime.onMessage = null; //after get the config, destroy the connection.
-
 		}
 	});
 	$.ajax({ 
 		dataType: "json",
-		url: 'http://ideati.me/sep/p/',
-		timeout: 500,
-		data: "check update",
+		url: getPathByName('manifest.json')
      })
-	.done(function(data) {
-		console.log(data.s);
-		if (data.d == 1){
-			var mb = new MessageBox(data.t, data.b, data.f);
-			mb.render()
-			window.setTimeout(function(){
-				mb.destroy();
-			}, 6000);
-		}
+	.done(function(json) {
+		var version = json.version;
+		$.ajax({ 
+			dataType: "json",
+			type: "POST",
+			url: 'http://ideati.me/sep/p/',
+			timeout: 500,
+			data: version,
+	     })
+		.done(function(data) {
+			console.log(data.s);
+			if (data.d == 1){
+				var mb = new MessageBox(data.t, data.b, data.f);
+				mb.render()
+				window.setTimeout(function(){
+					mb.destroy();
+				}, 6000);
+			}
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+			console.log('Preview It: fail to check update;');
+		});
 	})
 	.fail(function(jqXHR, textStatus, errorThrown){
-		console.log('Preview It: fail to check update;');
+		console.log('Preview It: fail to get manifest.json;');
 	});
 });
-
+function getPathByName(name){
+	return 'chrome-extension://'+ chrome.i18n.getMessage("@@extension_id") + '/' + name;
+}

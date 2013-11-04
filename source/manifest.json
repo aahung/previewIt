@@ -20,9 +20,8 @@
       "matches": ["http://*/*", "https://*/*"],
       "css": ["main.css"],
       "js": ["jquery.min.js", "class.js", "main.js"]
-      // "all_frames": true
     }
   ],
-  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close.svg", "menu.svg", "share.svg"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close.svg", "menu.svg", "share.svg", "manifest.json"],
   "manifest_version": 2
 }
