@@ -24,7 +24,7 @@ $(function(){
 			type: "POST",
 			url: 'http://ideati.me/sep/p/',
 			timeout: 500,
-			data: version,
+			data: {'version': version},
 	     })
 		.done(function(data) {
 			console.log(data.s);
