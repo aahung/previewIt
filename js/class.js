@@ -126,7 +126,7 @@ function PreviewBox(src){
 		//below is for move
 		var eleMove = document.createElement("div");
 		$(eleMove).addClass("box-move box-btn");
-		var moveImageLink = 'https://github.com/Aahung/previewIt/raw/master/source/move.svg';
+		var moveImageLink = 'move.svg';
 		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
 		$(eleMove).mousedown(function(){
 			var mask = document.createElement("div");
