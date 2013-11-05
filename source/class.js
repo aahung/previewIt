@@ -160,7 +160,7 @@ function PreviewBox(src){
 
 		//below to share(finished)
 		var eleShare = document.createElement("div");
-		$(eleShare).addClass("box-share box-btn").attr('title', 'share to Facebook');
+		$(eleShare).addClass("box-share box-btn").attr('title', 'Facebook this page!');
 		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
 		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
 		$(eleShare).click(function(){
