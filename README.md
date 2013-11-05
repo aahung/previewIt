@@ -5,12 +5,13 @@
 <h1>Future Plan</h1>
 <ol>
   <li><strong>It seems that the ex-ten id may change during a page session, we may neeeeed to add refresh the fucking glabal variable: id, maybe intervally</strong></li>
-  <li>Drag to move （hold to trigger）左侧加上小方块（container）</li>
-  <li>share button</li>
-  <li>用户自定义选项（菜单在小方块里）</li>
+  <li>用户自定义大小</li>
+  <li>Option page 加上 September 照片</li>
+  <li>share page 加上renren？</li>
+  <li>放大按钮</li>
   <li>可耻的加点广告？
     <ul>comment
-      <li>Fuck you</li>
+      <li>Fuck you back : P</li>
       <li>
         <pre>
 if (ad.exsit == 1){
