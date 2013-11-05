@@ -105,6 +105,9 @@ function PreviewBox(src){
 }
 	PreviewBox.prototype.render = function(){		
 		var thisForClose = this;
+		$(window).on('beforeunload', function(event) {
+			return "Are you going to leave this page?";
+		});
 		// get browser size
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
@@ -214,6 +217,7 @@ function PreviewBox(src){
 			$(eleContainer).css("top", 10* this.layer);
 		}
 		$(ele).load(function(){
+			$(window).off('beforeunload');
 			$(this).css("background", "white");
 		});
 
