@@ -1,7 +1,7 @@
 {
   "name": "Preview It",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.900",
+  "version": "0.9",
   "icons": { "16": "logo16.png",
            "48": "logo48.png",
           "128": "logo128.png" },
