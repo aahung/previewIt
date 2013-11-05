@@ -8,7 +8,13 @@ $(function(){
 		if (request.action == "start"){
 			sendResponse({farewell: "Copy Sir!"});
 			var shortupKeyCode = request.keyCode;
-			listener.start(shortupKeyCode);
+			if (window.location.href != 'http://aahung.github.io/previewIt/'){
+				listener.start(shortupKeyCode);
+			}
+			else {
+				chrome.runtime.onMessage = null; //after get the config, destroy the connection.
+				alert('This is demo page of Preview It, Preview It extension will be disabled in this page, in case of repeated boxes');
+			}
 			console.log('Preview It: successfully start, press \'' + String.fromCharCode(shortupKeyCode? shortupKeyCode : 119) + '\' to trigger the box(es);');
 			chrome.runtime.onMessage = null; //after get the config, destroy the connection.
 		}
