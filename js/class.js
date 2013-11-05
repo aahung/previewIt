@@ -121,18 +121,12 @@ function PreviewBox(src){
 		var menuImageLink = 'menu.svg';
 		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
 		$(eleMenu).click(function(){
-			winWidth    = 650;  
-	        winHeight   = 450;
-	        winLeft     = ($(window).width()  - winWidth)  / 2,
-	        winTop      = ($(window).height() - winHeight) / 2, 
-	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
-	        window.open('chrome-extension://jpiddemdaoecamgoboklidnollahhgjg/options.html','OptionPage',winOptions);
-	        return false;//Please add content here
+			alert('not available in demo page');
 		});
 		//below is for move
 		var eleMove = document.createElement("div");
 		$(eleMove).addClass("box-move box-btn");
-		var moveImageLink = 'move.svg';
+		var moveImageLink = 'https://github.com/Aahung/previewIt/raw/master/source/move.svg';
 		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
 		$(eleMove).mousedown(function(){
 			var mask = document.createElement("div");
