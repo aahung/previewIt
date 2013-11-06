@@ -195,6 +195,7 @@ function PreviewBox(src){
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr("src", this.src);
+		// $(ele).attr('sandbox', 'allow-scripts allow-same-origin allow-forms');
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
 		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
