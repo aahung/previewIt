@@ -108,6 +108,9 @@ function PreviewBox(src){
 		$(window).on('beforeunload', function(event){
 			return "Are you going to leave this page?";
 		});
+		window.setTimeout(function(){
+			$(window).off('beforeunload');
+		}, 2000);//cancel listening is case the box is not able to load.
 		// get browser size
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
@@ -218,7 +221,7 @@ function PreviewBox(src){
 			$(eleContainer).css("top", 10* this.layer);
 		}
 		$(ele).load(function(){
-			$(window).off('beforeunload');
+			$(window).off('beforeunload');//cancel the listening
 			$(this).css("background", "white");
 		});
 
