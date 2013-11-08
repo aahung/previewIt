@@ -214,7 +214,14 @@ function PreviewBox(src){
 		$(eleAddrInput).on('keydown', function(e){
 			if (e.which == 13){
 				if ($(this).val().substring(0, 4) != 'http'){
-					$(ele).attr('src', 'https://www.google.com/search?q=' + $(this).val());
+					var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+					debugger;
+					if(!pattern.test($(this).val())) {
+						$(ele).attr('src', 'https://www.google.com/search?q=' + $(this).val());
+					} 
+					else{
+						$(ele).attr('src', 'http://' + $(this).val());
+					}
 				}
 				else{
 					$(ele).attr('src', $(this).val());

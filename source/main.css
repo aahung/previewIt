@@ -102,6 +102,7 @@
 	left: -30px;
 	width: 300px;
 	z-index: 200000000;
+	box-shadow: 0px 0px 10px 0px black;
 }
 
 
