@@ -118,7 +118,7 @@ function PreviewBox(src){
 
 		var eleContainer = document.createElement("div");
 		this.eleContainer = eleContainer;
-		$(eleContainer).addClass("box-container");
+		$(eleContainer).addClass("box-container").width(boxWidthFuckGlobalVariable).height( boxHeightFuckGlobalVariable);
 
 		// below is for menu
 		var eleMenu = document.createElement("div");
@@ -230,6 +230,9 @@ function PreviewBox(src){
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
 		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
+		debugger;
+		$(ele).addClass("preview-box").width(boxWidthFuckGlobalVariable).height(boxHeightFuckGlobalVariable);
+		debugger;
 		$(ele).attr("data-layer", this.layer);//set identity
 
 
@@ -239,13 +242,13 @@ function PreviewBox(src){
 
 		// judge the mouse position and set the position of preview box dynamically
 		if (mouseXFuckGlobalVariable < windowWidth / 2){
-			$(eleContainer).css("left", windowWidth - 700 - 10* this.layer);
+			$(eleContainer).css("left", windowWidth - boxWidthFuckGlobalVariable - 10* this.layer);
 		}
 		else{
 			$(eleContainer).css("left", 10* this.layer + 30);
 		}
 		if (mouseYFuckGlobalVariable < windowHeight / 2){
-			$(eleContainer).css("top", windowHeight - 10* this.layer - 400);
+			$(eleContainer).css("top", windowHeight - 10* this.layer - boxHeightFuckGlobalVariable);
 		}
 		else{
 			$(eleContainer).css("top", 10* this.layer);

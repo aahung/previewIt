@@ -24,7 +24,9 @@ function trigger(){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {
             action: 'start',
-            keyCode: localStorage["shortup_key_code"]
+            keyCode: localStorage["shortup_key_code"],
+            width: localStorage['width'],
+            height: localStorage['height']
         }, function(response) {
             if (response){
                 console.log(response.farewell);

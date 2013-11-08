@@ -1,4 +1,4 @@
-var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, hoverLinkFuckGlobalVariable, extensionIDFuckGlobalVariable;
+var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, hoverLinkFuckGlobalVariable, extensionIDFuckGlobalVariable, boxWidthFuckGlobalVariable, boxHeightFuckGlobalVariable; 
 $(function(){
 	extensionIDFuckGlobalVariable = chrome.i18n.getMessage("@@extension_id");
 	boxColFuckGlobalVariable = new BoxCollection();
@@ -14,6 +14,19 @@ $(function(){
 			else {
 				chrome.runtime.onMessage = null; //after get the config, destroy the connection.
 				alert('This is demo page of Preview It, Preview It extension will be disabled in this page, in case of repeated boxes');
+			}
+			if (request.width){	 	
+					boxWidthFuckGlobalVariable = request.width * 1400 / 100;
+					debugger;	 	
+				}	 	
+			else {	 	
+				boxWidthFuckGlobalVariable = 700; 	
+			}	 	
+			if (request.height){	 	
+				boxHeightFuckGlobalVariable = request.height * 800 / 100;	 	
+			}	 	
+			else {	 	
+				boxHeightFuckGlobalVariable = 400;
 			}
 			console.log('Preview It: successfully start, press \'' + String.fromCharCode(shortupKeyCode? shortupKeyCode : 119) + '\' to trigger the box(es);');
 			chrome.runtime.onMessage = null; //after get the config, destroy the connection.
