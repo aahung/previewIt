@@ -205,7 +205,7 @@ function PreviewBox(src){
 		});
 		$(eleAddr).css("background-image", 'url(' + addrImageLink + ')');
 		var eleAddrInput = document.createElement('input');
-		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http://');
+		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http:// or search directly on Google');
 		$(eleAddrInput).hover(function(){
 			$(eleAddr).addClass('hover');
 		}, function(){
@@ -214,7 +214,7 @@ function PreviewBox(src){
 		$(eleAddrInput).on('keydown', function(e){
 			if (e.which == 13){
 				if ($(this).val().substring(0, 4) != 'http'){
-					$(ele).attr('src', 'http://' + $(this).val());
+					$(ele).attr('src', 'https://www.google.com/search?q=' + $(this).val());
 				}
 				else{
 					$(ele).attr('src', $(this).val());
