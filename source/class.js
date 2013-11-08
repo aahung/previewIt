@@ -197,13 +197,11 @@ function PreviewBox(src){
 
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
-		$(ele).attr("src", this.src);
-		// $(ele).attr('sandbox', 'allow-scripts allow-same-origin allow-forms');
+		$(ele).attr('sandbox', 'allow-scripts allow-forms allow-same-origin').attr("src", this.src);
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
 		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
-
 
 		// 华丽的分割线------------------------------------------
 
@@ -240,7 +238,9 @@ function PreviewBox(src){
 		$(eleContainer).fadeIn(200);
 	}
 	PreviewBox.prototype.destroy = function(){
-		$(this.eleContainer).fadeOut(200);
+		$(this.eleContainer).fadeOut(200, function(){
+			$(this).remove();
+		});
 	}
 
 function MessageBox(title, body, footer){

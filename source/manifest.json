@@ -1,7 +1,7 @@
 {
   "name": "Preview It",
   "description": "a chrome extension to preview pages in popup small window",
-  "version": "0.8502",
+  "version": "0.8503",
   "icons": { "16": "logo16.png",
            "48": "logo48.png",
           "128": "logo128.png" },
@@ -9,11 +9,11 @@
   "update_url": "https://github.com/Aahung/previewIt/raw/master/update.xml",
   "permissions": [
     "tabs",
+    "webRequest",
+    "webRequestBlocking",
     "http://*/*",
     "https://*/*",
-    "background",
-    "webRequest",
-    "webRequestBlocking"
+    "background"
   ], 
   "options_page": "options.html",
   "content_scripts": [
