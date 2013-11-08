@@ -90,7 +90,7 @@
 	width: 10px;
 	position: absolute;
 	left: -0px;
-	top: 70px;
+	top: 73px;
 	z-index: 999999;
 	transition: width 0.4s ease, left 0.4s ease;
 }
@@ -99,7 +99,7 @@
 	width: 18px;
 }
 .box-address-input:focus{
-	left: -15px;
+	left: -30px;
 	width: 300px;
 	z-index: 200000000;
 }
