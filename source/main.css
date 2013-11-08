@@ -33,7 +33,7 @@
 	background-repeat: no-repeat;
 	transition: background-position 0.4s ease;
 }
-.box-btn:hover {
+.box-btn:hover, .box-btn.hover {
 	background-position: 0px 0px;
 }
 .box-menu{
@@ -41,6 +41,9 @@
 }
 .box-close{
 	top: 0px;
+}
+.box-addr{
+	top: 60px;
 }
 .box-share{
 	bottom:50px;
@@ -83,4 +86,22 @@
 .pi-message-box small {
 	text-align: right;
 }
+.box-address-input{
+	width: 10px;
+	position: absolute;
+	left: -0px;
+	top: 70px;
+	z-index: 999999;
+	transition: width 0.4s ease, left 0.4s ease;
+}
+.box-address-input.hover, .box-address-input:hover{
+	left: -25px;
+	width: 18px;
+}
+.box-address-input:focus{
+	left: -15px;
+	width: 300px;
+	z-index: 200000000;
+}
+
 

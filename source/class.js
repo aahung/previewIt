@@ -195,6 +195,35 @@ function PreviewBox(src){
 		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
 		
 
+		var eleAddr = document.createElement('div');
+		$(eleAddr).addClass('box-addr box-btn').attr('title', 'address');
+		var addrImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/address.svg';
+		$(eleAddr).hover(function(){
+			$(eleAddrInput).addClass('hover');
+		}, function(){
+			$(eleAddrInput).removeClass('hover');
+		});
+		$(eleAddr).css("background-image", 'url(' + addrImageLink + ')');
+		var eleAddrInput = document.createElement('input');
+		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http://');
+		$(eleAddrInput).hover(function(){
+			$(eleAddr).addClass('hover');
+		}, function(){
+			$(eleAddr).removeClass('hover');
+		});
+		$(eleAddrInput).on('keydown', function(e){
+			if (e.which == 13){
+				if ($(this).val().substring(0, 4) != 'http'){
+					$(ele).attr('src', 'http://' + $(this).val());
+				}
+				else{
+					$(ele).attr('src', $(this).val());
+				}
+				$(this).blur();
+			}
+		});
+
+
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
 		$(ele).attr('sandbox', 'allow-scripts allow-forms allow-same-origin').attr("src", this.src);
@@ -202,6 +231,9 @@ function PreviewBox(src){
 		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
 		$(ele).attr("data-layer", this.layer);//set identity
+
+
+
 
 		// 华丽的分割线------------------------------------------
 
@@ -229,6 +261,8 @@ function PreviewBox(src){
 
 
 		this.ele = ele;
+		$(eleContainer).append(eleAddr);
+		$(eleContainer).append(eleAddrInput);
 		$(eleContainer).append(eleMenu);//add menu
 		$(eleContainer).append(eleClose);//add close button
 		$(eleContainer).append(eleShare);//add close button
