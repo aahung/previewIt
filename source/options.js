@@ -19,6 +19,8 @@ function save_options() {
 	var shortupChar = document.getElementById("shortcut-key");
 	var width = document.getElementById("width");
 	var height = document.getElementById("height");
+	widthLabel.innerHTML = width.value * 14 + 'px';
+	heightLabel.innerHTML = height.value * 8 + 'px';
 	if (shortupChar.value|| width.value || height.value){
 		var code = shortupChar.value.charCodeAt(0);
 		localStorage["shortup_key_code"] = code;
@@ -55,6 +57,8 @@ function restore_options() {
 		var _height = document.getElementById("height");	 			
 		_width.value = width;	 	
 		_height.value = height;
+		widthLabel.innerHTML = _width.value * 14 + 'px';
+		heightLabel.innerHTML = _height.value * 8 + 'px';
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#shortcut-key').addEventListener('keyup', save_options);
