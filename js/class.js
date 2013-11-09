@@ -183,6 +183,25 @@ function PreviewBox(src){
 		var closeNormalImageLink = 'close.svg';
 		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
 		
+		//below is for search colomn
+		debugger;
+		var eleAddr = document.createElement('div');
+		$(eleAddr).addClass('box-addr box-btn').attr('title', 'address');
+		var addrImageLink = 'close.svg';//need to be changed
+		$(eleAddr).hover(function(){
+			$(eleAddrInput).addClass('hover');
+		}, function(){
+			$(eleAddrInput).removeClass('hover');
+		});
+		$(eleAddr).css("background-image", 'url(' + addrImageLink + ')');
+		var eleAddrInput = document.createElement('input');
+		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http:// or search directly on Google');
+		$(eleAddrInput).hover(function(){
+			$(eleAddr).addClass('hover');
+		}, function(){
+			$(eleAddr).removeClass('hover');
+		});
+		debugger;
 
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
