@@ -187,7 +187,7 @@ function PreviewBox(src){
 		debugger;
 		var eleAddr = document.createElement('div');
 		$(eleAddr).addClass('box-addr box-btn').attr('title', 'address');
-		var addrImageLink = 'close.svg';//need to be changed
+		var addrImageLink = 'address.svg';
 		$(eleAddr).hover(function(){
 			$(eleAddrInput).addClass('hover');
 		}, function(){
@@ -237,6 +237,8 @@ function PreviewBox(src){
 
 		this.ele = ele;
 		$(eleContainer).append(eleMenu);//add menu
+		$(eleContainer).append(eleAddr);
+		$(eleContainer).append(eleAddrInput);
 		$(eleContainer).append(eleClose);//add close button
 		$(eleContainer).append(eleShare);//add close button
 		$(eleContainer).append(eleMove);//add move button
