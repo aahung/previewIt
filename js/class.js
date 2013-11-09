@@ -195,13 +195,12 @@ function PreviewBox(src){
 		});
 		$(eleAddr).css("background-image", 'url(' + addrImageLink + ')');
 		var eleAddrInput = document.createElement('input');
-		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http:// or search directly on Google');
+		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'Not available in demo. :-)');
 		$(eleAddrInput).hover(function(){
 			$(eleAddr).addClass('hover');
 		}, function(){
 			$(eleAddr).removeClass('hover');
 		});
-		debugger;
 
 
 		var ele = document.createElement("iframe");//create preview box element, for future render
