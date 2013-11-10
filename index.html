@@ -146,11 +146,11 @@
     <![endif]-->
     <script type="text/javascript">
     $(function(){
-      $('.buffer:nth-of-type(1)').load(function(){
-        $('.buffer:nth-of-type(2)').load(function(){
-          $('.buffer:nth-of-type(3)').load(function(){
-            $('.buffer:nth-of-type(4)').load(function(){
-              $('.buffer:nth-of-type(5)').load(function(){
+      $('.buffer1').load(function(){
+        $('.buffer2').load(function(){
+          $('.buffer3').load(function(){
+            $('.buffer4').load(function(){
+              $('.buffer5').load(function(){
                 $('#bg_1').addClass('in');
                 window.setTimeout(function(){
                   $('#bg_2').addClass('in');
@@ -175,7 +175,7 @@
   </head>
 
   <body style="background: url(foot.png) 100% 101% no-repeat">
-    <img class="buffer" src="bg/bg_1.png" style="display: none"><img class="buffer" src="bg/bg_2.png" style="display: none"><img class="buffer" src="bg/bg_3.png" style="display: none"><img class="buffer" src="bg/bg_4.png" style="display: none"><img class="buffer" src="bg/bg_5.png" style="display: none">
+    <img class="buffer1" src="bg/bg_1.png" style="display: none"><img class="buffer2" src="bg/bg_2.png" style="display: none"><img class="buffer3" src="bg/bg_3.png" style="display: none"><img class="buffer4" src="bg/bg_4.png" style="display: none"><img class="buffer5" src="bg/bg_5.png" style="display: none">
     <div class="bg-container" id="bg_1" style="background-image: url(bg/bg_1.png); width: 100%; height: 700px;"></div>
     <div class="bg-container" id="bg_2" style="background-image: url(bg/bg_2.png); width: 100%; height: 700px;"></div>
     <div class="bg-container" id="bg_3" style="background-image: url(bg/bg_3.png); width: 100%; height: 700px;"></div>
