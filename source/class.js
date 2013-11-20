@@ -129,7 +129,8 @@ function PreviewBox(src){
 	        winLeft     = ($(window).width()  - winWidth)  / 2,
 	        winTop      = ($(window).height() - winHeight) / 2, 
 	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
-	        window.open('chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html','OptionPage',winOptions);
+	        var optionPageLink = 'chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html';
+	        window.open(optionPageLink,'OptionPage',winOptions);
 	        return false;//Please add content here
 		});
 
