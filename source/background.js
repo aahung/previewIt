@@ -1,5 +1,5 @@
 if (!localStorage["uuid"]){
-    localStorage['uuid'] = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    localStorage['uuid'] = s4() + s4() + s4() + s4() + s4() + s4() + s4() + s4();
 }
 
 chrome.webRequest.onHeadersReceived.addListener(
