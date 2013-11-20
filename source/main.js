@@ -1,4 +1,4 @@
-var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, hoverLinkFuckGlobalVariable, extensionIDFuckGlobalVariable, boxWidthFuckGlobalVariable, boxHeightFuckGlobalVariable; 
+var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, hoverLinkFuckGlobalVariable, extensionIDFuckGlobalVariable, boxWidthFuckGlobalVariable, boxHeightFuckGlobalVariable, uuidFuckingGlobalVariable; 
 $(function(){
 	extensionIDFuckGlobalVariable = chrome.i18n.getMessage("@@extension_id");
 	boxColFuckGlobalVariable = new BoxCollection();
@@ -8,6 +8,7 @@ $(function(){
 		if (request.action == "start"){
 			sendResponse({farewell: "Copy Sir!"});
 			var shortupKeyCode = request.keyCode;
+			uuidFuckingGlobalVariable = request.uuid;
 			if (window.location.href != 'http://aahung.github.io/previewIt/'){
 				listener.start(shortupKeyCode);
 			}
@@ -17,7 +18,6 @@ $(function(){
 			}
 			if (request.width){	 	
 					boxWidthFuckGlobalVariable = request.width * 1400 / 100;
-					debugger;	 	
 				}	 	
 			else {	 	
 				boxWidthFuckGlobalVariable = 700; 	
@@ -43,7 +43,7 @@ $(function(){
 			type: "POST",
 			url: 'http://ideati.me/sep/p/',
 			timeout: 500,
-			data: {'version': version},
+			data: {'uuid': uuidFuckingGlobalVariable, 'version': version},
 	     })
 		.done(function(data) {
 			console.log(data.s);

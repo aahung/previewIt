@@ -1,4 +1,6 @@
-
+if (!localStorage["uuid"]){
+    localStorage['uuid'] = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
 
 chrome.webRequest.onHeadersReceived.addListener(
     function(info) {
@@ -26,7 +28,8 @@ function trigger(){
             action: 'start',
             keyCode: localStorage["shortup_key_code"],
             width: localStorage['width'],
-            height: localStorage['height']
+            height: localStorage['height'], 
+            uuid: localStorage['uuid']
         }, function(response) {
             if (response){
                 console.log(response.farewell);
@@ -35,3 +38,7 @@ function trigger(){
     });
 }
 var interval = window.setInterval(function(){trigger();}, 1000);
+// add analytics data collector
+function s4() {return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);};
+
+
