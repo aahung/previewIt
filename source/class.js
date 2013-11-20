@@ -121,10 +121,8 @@ function PreviewBox(src){
 		$(eleContainer).addClass("box-container").width(boxWidthFuckGlobalVariable).height( boxHeightFuckGlobalVariable);
 
 		// below is for menu
-		var eleMenu = document.createElement("div");
-		$(eleMenu).addClass("box-menu box-btn").attr('title', 'options');
-		var menuImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/menu.svg';
-		$(eleMenu).css("background-image", 'url(' + menuImageLink + ')');
+		var menuBtn = new Button('options', 'box-menu box-btn', 'menu.svg');
+		var eleMenu = menuBtn.ele;
 		$(eleMenu).click(function(){
 			winWidth    = 650;  
 	        winHeight   = 450;
@@ -134,11 +132,10 @@ function PreviewBox(src){
 	        window.open('chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html','OptionPage',winOptions);
 	        return false;//Please add content here
 		});
+
 		//below is for move
-		var eleMove = document.createElement("div");
-		$(eleMove).addClass("box-move box-btn").attr('title', 'drag to move');
-		var moveImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/move.svg';
-		$(eleMove).css("background-image", 'url(' + moveImageLink + ')');
+		var moveBtn = new Button('drag to move', 'box-move box-btn', 'move.svg');
+		var eleMove = moveBtn.ele;
 		$(eleMove).mousedown(function(){
 			var mask = document.createElement("div");
 			$(mask).attr('id','moveMask');
@@ -165,10 +162,8 @@ function PreviewBox(src){
 
 
 		//below to share(finished)
-		var eleShare = document.createElement("div");
-		$(eleShare).addClass("box-share box-btn").attr('title', 'share this page to Facebook');
-		var shareImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/share.svg';
-		$(eleShare).css("background-image", 'url(' + shareImageLink + ')');
+		var shareBtn = new Button('share this page to Facebook', 'box-share box-btn', 'share.svg');
+		var eleShare = shareBtn.ele;
 		$(eleShare).click(function(){
 			var pageTitle = document.title; //HTML page title
 			var pageUrl = thisForClose.src; //Location of the page
@@ -186,24 +181,20 @@ function PreviewBox(src){
 		});
 
 		// on click close button, close the box(finished)
-		var eleClose = document.createElement('div');
-		$(eleClose).addClass('box-close box-btn').attr('title', 'close');
+		var closeBtn = new Button('close', 'box-close box-btn', 'close.svg');
+		var eleClose = closeBtn.ele;
 		$(eleClose).click(function(){
 			boxColFuckGlobalVariable.pop(thisForClose);
 		});
-		var closeNormalImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/close.svg';
-		$(eleClose).css("background-image", 'url(' + closeNormalImageLink + ')');
-		
 
-		var eleAddr = document.createElement('div');
-		$(eleAddr).addClass('box-addr box-btn').attr('title', 'address');
-		var addrImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/address.svg';
+		var addrBtn = new Button('address', 'box-addr box-btn', 'address.svg');
+		var eleAddr = addrBtn.ele;
 		$(eleAddr).hover(function(){
 			$(eleAddrInput).addClass('hover');
 		}, function(){
 			$(eleAddrInput).removeClass('hover');
 		});
-		$(eleAddr).css("background-image", 'url(' + addrImageLink + ')');
+
 		var eleAddrInput = document.createElement('input');
 		$(eleAddrInput).addClass('box-address-input').attr('placeholder', 'http:// or search directly on Google');
 		$(eleAddrInput).hover(function(){
@@ -237,9 +228,7 @@ function PreviewBox(src){
 		var loadingImageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable +'/loading.gif';
 		$(ele).css('background-image', 'url(' + loadingImageLink + ')');
 		$(ele).addClass("preview-box");//set identity
-		debugger;
 		$(ele).addClass("preview-box").width(boxWidthFuckGlobalVariable).height(boxHeightFuckGlobalVariable);
-		debugger;
 		$(ele).attr("data-layer", this.layer);//set identity
 
 
@@ -271,13 +260,7 @@ function PreviewBox(src){
 
 
 		this.ele = ele;
-		$(eleContainer).append(eleAddr);
-		$(eleContainer).append(eleAddrInput);
-		$(eleContainer).append(eleMenu);//add menu
-		$(eleContainer).append(eleClose);//add close button
-		$(eleContainer).append(eleShare);//add close button
-		$(eleContainer).append(eleMove);//add move button
-		$(eleContainer).append(ele);// add box to box container
+		$(eleContainer).append(eleAddr).append(eleAddrInput).append(eleMenu).append(eleClose).append(eleShare).append(eleMove).append(ele);// add box to box container
 		$("body").append(eleContainer);//render the preview box container
 		$(eleContainer).fadeIn(200);
 	}
@@ -286,6 +269,14 @@ function PreviewBox(src){
 			$(this).remove();
 		});
 	}
+
+
+function Button(helpText, className, icon){
+	this.helpText = helpText;//text display when hovering on it;
+	this.ele = document.createElement('div');//html element of it;
+	var imageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable + '/' + icon;
+	$(this.ele).addClass(className).css("background-image", 'url(' + imageLink + ')');
+}
 
 function MessageBox(title, body, footer){
 	this.title = title;
@@ -305,3 +296,4 @@ function MessageBox(title, body, footer){
 	MessageBox.prototype.destroy = function(){
 		$(this.ele).slideUp(1000);
 	}
+
