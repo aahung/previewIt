@@ -1,0 +1,108 @@
+.box-container {
+	display: none;
+	height: 400px;
+	width: 700px;
+	position: fixed;
+	border: 0;
+	z-index: 999999;
+}
+.preview-box {
+	height: 400px;
+	width: 700px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 999999;
+	box-shadow: 0px 0px 10px 0px black;
+	background: url('http://dribbble.s3.amazonaws.com/users/80078/screenshots/995621/loading.gif');
+	background-position: center center;
+}
+.box-btn {
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	cursor: pointer;
+	position: absolute;
+	left: -45px;
+	z-index: 999999;
+	background-position: 25px 0px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: background-position 0.4s ease;
+}
+.box-btn:hover, .box-btn.hover {
+	background-position: 0px 0px;
+}
+.box-menu{
+	bottom: 0px;
+}
+.box-close{
+	top: 0px;
+}
+.box-addr{
+	top: 60px;
+}
+.box-share{
+	bottom:50px;
+}
+.box-move{
+	bottom:100px;
+	cursor: move;
+}
+#moveMask {
+	position: fixed;
+	top: -10px;
+	left: -10px;
+	z-index: 9999999;
+	width: 10000px;
+	height: 10000px;
+	cursor: move;
+}
+
+.pi-message-box {
+	position: fixed;
+	bottom: 0px;
+	left: 10px;
+	width: 300px;
+	z-index: 99999999;
+	display: none;
+	background-color: white;
+	box-shadow: 0px 0px 10px 0px black;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.pi-message-box h3 {
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+.pi-message-box p {
+	margin-top: 8px;
+	margin-bottom: 6px;
+}
+.pi-message-box small {
+	text-align: right;
+}
+.box-address-input{
+	width: 10px;
+	position: absolute;
+	left: -0px;
+	top: 73px;
+	z-index: 999999;
+	transition: width 0.4s ease, left 0.4s ease;
+}
+.box-address-input.hover, .box-address-input:hover{
+	left: -25px;
+	width: 18px;
+}
+.box-address-input:focus{
+	left: -30px;
+	width: 300px;
+	z-index: 200000000;
+	box-shadow: 0px 0px 10px 0px black;
+}
+
+
