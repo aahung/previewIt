@@ -276,7 +276,7 @@ function Button(helpText, className, icon){
 	this.helpText = helpText;//text display when hovering on it;
 	this.ele = document.createElement('div');//html element of it;
 	var imageLink = 'chrome-extension://'+ extensionIDFuckGlobalVariable + '/' + icon;
-	$(this.ele).addClass(className).css("background-image", 'url(' + imageLink + ')');
+	$(this.ele).attr('title', helpText).addClass(className).css("background-image", 'url(' + imageLink + ')');
 }
 
 function MessageBox(title, body, footer){
