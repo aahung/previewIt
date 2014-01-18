@@ -124,14 +124,10 @@ function PreviewBox(src){
 		var menuBtn = new Button('options', 'box-menu box-btn', 'menu.svg');
 		var eleMenu = menuBtn.ele;
 		$(eleMenu).click(function(){
-			winWidth    = 650;  
-	        winHeight   = 450;
-	        winLeft     = ($(window).width()  - winWidth)  / 2,
-	        winTop      = ($(window).height() - winHeight) / 2, 
-	        winOptions   = 'width='  + winWidth  + ',height=' + winHeight + ',top='    + winTop    + ',left='   + winLeft;
-	        var optionPageLink = 'chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html';
-	        window.open(optionPageLink,'OptionPage',winOptions);
-	        return false;//Please add content here
+			var optionPageLink = 'chrome-extension://' + extensionIDFuckGlobalVariable + '/options.html';
+			var newBox = new PreviewBox(optionPageLink);
+			boxColFuckGlobalVariable.add(newBox);
+			newBox.render();
 		});
 
 		//below is for move
