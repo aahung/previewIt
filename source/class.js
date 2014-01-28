@@ -13,7 +13,6 @@ function Listener(){
 		}
 		this.listenCursor();
 		this.listenKeys();
-		this.listenLinks();
 	}
 	Listener.prototype.listenCursor = function(){
 		$(window).mousemove(function(e){
@@ -26,9 +25,12 @@ function Listener(){
 		$(window).on("keypress", function(e){
 			var key = e.which;
 			var isInputing = ($("input:focus").length > 0) || ($("textarea:focus").length > 0);
-			if ((!isInputing) && key == shortupKeyCode && hoverLinkFuckGlobalVariable != null) {
-				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $(hoverLinkFuckGlobalVariable).attr('href')){
-					var newBox = new PreviewBox($(hoverLinkFuckGlobalVariable).attr('href'));
+			if (isInputing || key != shortupKeyCode) {
+				return 0;// terminate function
+			}
+			if ($("a:hover").length > 0 && $("a:hover").attr('href')) {
+				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $("a:hover").attr('href')){
+					var newBox = new PreviewBox($("a:hover").attr('href'));
 					boxColFuckGlobalVariable.add(newBox);
 					newBox.render();
 				}
@@ -36,16 +38,9 @@ function Listener(){
 					boxColFuckGlobalVariable.pop();
 				}
 			}
-			if ((!isInputing) && key == shortupKeyCode && hoverLinkFuckGlobalVariable == null && boxColFuckGlobalVariable.member.length != 0) {
-				boxColFuckGlobalVariable.pop();
+			else {
+				((boxColFuckGlobalVariable.member.length == 0) || boxColFuckGlobalVariable.pop());
 			}
-		});
-	}
-	Listener.prototype.listenLinks = function(){
-		$("a").hover(function(){
-			hoverLinkFuckGlobalVariable = this; 
-		}, function(){
-			hoverLinkFuckGlobalVariable = null;
 		});
 	}
 
