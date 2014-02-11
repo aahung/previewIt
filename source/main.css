@@ -65,7 +65,7 @@
 .pi-message-box {
 	position: fixed;
 	bottom: 0px;
-	left: 10px;
+	right: 10px;
 	width: 300px;
 	z-index: 99999999;
 	display: none;

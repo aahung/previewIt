@@ -30,7 +30,20 @@ function Listener(){
 			}
 			if ($("a:hover").length > 0 && $("a:hover").attr('href')) {
 				if (boxColFuckGlobalVariable.member.length == 0 || boxColFuckGlobalVariable.topBox().src != $("a:hover").attr('href')){
+					if ($("a:hover").attr('href').indexOf('javascript') == 0) {
+						var mb = new MessageBox("Preview It - Notice", "This is not link, but a script, so you cannot preview it.", "Preview It");
+						mb.render();
+						return; //ignore javascript link
+					}
+
 					var newBox = new PreviewBox($("a:hover").attr('href'));
+
+					///display warning: (https vs http)
+					if ($("a:hover").attr('href').toLowerCase().indexOf('http://') == 0 && location.href.toLowerCase().indexOf('https://') == 0) {
+						newBox = new PreviewBox($("a:hover").attr('href').replace('http://', 'https://'));
+						CheckUrlMatchCSP($("a:hover").attr('href').replace('http://', 'https://'), newBox);
+					} 
+
 					boxColFuckGlobalVariable.add(newBox);
 					newBox.render();
 				}
@@ -198,12 +211,14 @@ function PreviewBox(src){
 			if (e.which == 13){
 				if ($(this).val().substring(0, 4) != 'http'){
 					var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
-					debugger;
+					//debugger;
 					if(!pattern.test($(this).val())) {
 						$(ele).attr('src', 'https://www.google.com/search?q=' + $(this).val());
 					} 
 					else{
-						$(ele).attr('src', 'http://' + $(this).val());
+						var urlToOpen = '//' + $(this).val();
+						$(ele).attr('src', urlToOpen);
+						CheckUrlMatchCSP(urlToOpen);
 					}
 				}
 				else{
@@ -277,6 +292,25 @@ function MessageBox(title, body, footer){
 	this.ele;
 }
 	MessageBox.prototype.render = function(){
+		//define timer
+		function Timer(callback, delay) {
+		    var timerId, start, remaining = delay;
+
+		    this.pause = function() {
+		        window.clearTimeout(timerId);
+		        remaining -= new Date() - start;
+		    };
+
+		    this.resume = function() {
+		        start = new Date();
+		        timerId = window.setTimeout(callback, remaining);
+		    };
+
+		    this.resume();
+		}
+
+		
+		//start function
 		var htmlStr = '<h3>' + this.title + '</h3><p>' + this.body + '</p><small>' + this.footer + '</small>';
 		var mb = document.createElement('div');
 		$(mb).addClass('pi-message-box');
@@ -284,8 +318,16 @@ function MessageBox(title, body, footer){
 		this.ele = mb;
 		$('body').append(mb);
 		$(mb).slideDown(1000);
-	}
-	MessageBox.prototype.destroy = function(){
-		$(this.ele).slideUp(1000);
+		var timer = new Timer(function() {
+		    $(mb).slideUp(1000);
+		    window.setTimeout(function(){
+		    	$(md).remove();
+		    });
+		}, 6000);
+		$(mb).hover(function(){
+			timer.pause();
+		}, function(){
+			timer.resume();
+		});
 	}
 

@@ -49,10 +49,7 @@ $(function(){
 				console.log(data.s);
 				if (data.d == 1){
 					var mb = new MessageBox(data.t, data.b, data.f);
-					mb.render()
-					window.setTimeout(function(){
-						mb.destroy();
-					}, 6000);
+					mb.render();
 				}
 			})
 			.fail(function(jqXHR, textStatus, errorThrown){
@@ -66,4 +63,31 @@ $(function(){
 });
 function getPathByName(name){
 	return 'chrome-extension://'+ chrome.i18n.getMessage("@@extension_id") + '/' + name;
+}
+function CheckUrlMatchCSP(url, boxToBeControlled) {
+	//check https vs http
+	var http = new XMLHttpRequest();
+	http.open('HEAD', url);
+	http.onreadystatechange = function() {
+        if (this.readyState == this.DONE) {
+            if (this.status == 0) {
+            	displayNotice();
+            } else {
+            	return true;
+            }
+        }
+    };
+	try {
+		http.send();
+	}
+	catch(e){
+		displayNotice();
+	}
+	function displayNotice(){
+		if (boxToBeControlled != undefined){
+			boxColFuckGlobalVariable.pop(boxToBeControlled);
+		}
+		var mb = new MessageBox("Preview It - Notice", "Due to the <a href='http://developer.chrome.com/extensions/contentSecurityPolicy.html' target='_blank'>Content Security Policy (CSP)</a>, this page may not be previewed correctly. <br><strong>Sorry for inconvenience</strong>. If you cannot open it even in a new page, ", "Preview It");
+		mb.render();
+	}
 }
