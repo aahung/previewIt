@@ -3,6 +3,7 @@
 <img src="https://raw.github.com/Aahung/previewIt/master/screenshot.png" style="width: 100%; box-shadow: 0px 0px 10px 0px black">
 <hr/>
 <h1>Future Plan</h1>
+<h2>*Change the trigger method to make it simple and convenient<h2>
 <ol>
   <li><strong>It seems that the ex-ten id may change during a page session, we may neeeeed to add refresh the fucking glabal variable: id, maybe intervally</strong></li>
   <li>用户自定义大小</li>
