@@ -98,11 +98,31 @@
 	left: -25px;
 	width: 18px;
 }
-.box-address-input:focus{
+.box-address-input:focus {
 	left: -30px;
 	width: 300px;
 	z-index: 200000000;
 	box-shadow: 0px 0px 10px 0px black;
 }
-
-
+.drop-target {
+	position: fixed;
+	margin-left: 25px;
+	margin-top: 25px;
+	height: 50px;
+	width: 50px;
+	/*box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);*/
+	z-index: 10000000;
+	transition: margin-left 0.4s ease, margin-top 0.4s ease, height 0.4s ease, width 0.4s ease;
+}
+.drop-target.hidden {
+	margin-left: 50px;
+	margin-top: 50px;
+	height: 0px;
+	width: 0px;
+}
+.drop-target.zoom {
+	margin-left: 0;
+	margin-top: 0;
+	height: 100px;
+	width: 100px;
+}

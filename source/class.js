@@ -22,6 +22,46 @@ function Listener(){
 	}
 	Listener.prototype.listenKeys = function(){
 		var shortupKeyCode = this.shortupKeyCode;
+		$(window).on("mousedown", function(e) {
+			if ($("a:hover").length > 0 && $("a:hover").attr('href')) {
+				$("a:hover").attr('draggable', 'true');
+				$('.drop-target').remove();
+				(function(url) {
+					var drop_preview = $('<img src="' + 'chrome-extension://' + extensionIDFuckGlobalVariable + '/logo.svg' + '" class="drop-target hidden"/>');
+					$(drop_preview).css('left', mouseXFuckGlobalVariable + "px").css('top', mouseYFuckGlobalVariable - 60 + "px").on('dragover', function(e){
+						e.preventDefault();
+					}).on('dragover', function(e){
+						e.preventDefault();
+						if (!$(this).hasClass('zoom')) {
+							$(this).addClass('zoom');
+						}
+					}).on('dragleave', function(e){
+						e.preventDefault();
+						if ($(this).hasClass('zoom')) {
+							$(this).removeClass('zoom');
+						}
+					}).on('drop', function(e){
+						e.preventDefault();
+						var newBox = new PreviewBox(url);
+						boxColFuckGlobalVariable.add(newBox);
+						newBox.render();
+					});
+					
+					$("body").append(drop_preview);
+					window.setTimeout(function(){
+						$(drop_preview).removeClass('hidden');
+					}, 1);
+				})($("a:hover").attr('href'));
+				$('a:hover').on('dragend', function(e){
+					$('.drop-target').remove();
+				});
+				$('a').on('dragend', function(e){
+					e.preventDefault();
+				});
+			};
+		}).on('mouseup', function(){
+			$('.drop-target').remove();
+		});
 		$(window).on("keypress", function(e){
 			var key = e.which;
 			var isInputing = ($("input:focus").length > 0) || ($("textarea:focus").length > 0);

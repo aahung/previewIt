@@ -22,6 +22,6 @@
       "js": ["jquery.min.js", "class.js", "main.js"]
     }
   ],
-  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close.svg", "menu.svg", "share.svg", "address.svg", "manifest.json", "options.html"],
+  "web_accessible_resources": ["jquery.min.js", "class.js", "main.js", "loading.gif", "move.svg", "close.svg", "menu.svg", "share.svg", "address.svg", "manifest.json", "options.html", "logo.svg"],
   "manifest_version": 2
 }

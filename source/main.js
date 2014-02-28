@@ -1,3 +1,4 @@
+var isTesting = true;
 var boxColFuckGlobalVariable, mouseXFuckGlobalVariable, mouseYFuckGlobalVariable, extensionIDFuckGlobalVariable, boxWidthFuckGlobalVariable, boxHeightFuckGlobalVariable, uuidFuckingGlobalVariable; 
 $(function(){
 	extensionIDFuckGlobalVariable = chrome.i18n.getMessage("@@extension_id");
@@ -31,34 +32,36 @@ $(function(){
 			console.log('Preview It: successfully start, press \'' + String.fromCharCode(shortupKeyCode? shortupKeyCode : 119) + '\' to trigger the box(es);');
 			chrome.runtime.onMessage = null; //after get the config, destroy the connection.
 		}
-		$.ajax({ 
-			dataType: "json",
-			url: getPathByName('manifest.json')
-	     })
-		.done(function(json) {
-			var version = json.version;
-			var jsonObj = {'uuid': uuidFuckingGlobalVariable, 'version': version};
+		if (!isTesting) {
 			$.ajax({ 
 				dataType: "json",
-				type: "POST",
-				url: 'http://ideati.me/sep/p/',
-				timeout: 5000,
-				data: jsonObj
+				url: getPathByName('manifest.json')
 		     })
-			.done(function(data) {
-				console.log(data.s);
-				if (data.d == 1){
-					var mb = new MessageBox(data.t, data.b, data.f);
-					mb.render();
-				}
+			.done(function(json) {
+				var version = json.version;
+				var jsonObj = {'uuid': uuidFuckingGlobalVariable, 'version': version};
+				$.ajax({ 
+					dataType: "json",
+					type: "POST",
+					url: 'http://ideati.me/sep/p/',
+					timeout: 5000,
+					data: jsonObj
+			     })
+				.done(function(data) {
+					console.log(data.s);
+					if (data.d == 1){
+						var mb = new MessageBox(data.t, data.b, data.f);
+						mb.render();
+					}
+				})
+				.fail(function(jqXHR, textStatus, errorThrown){
+					console.log('Preview It: fail to check update;');
+				});
 			})
 			.fail(function(jqXHR, textStatus, errorThrown){
-				console.log('Preview It: fail to check update;');
-			});
-		})
-		.fail(function(jqXHR, textStatus, errorThrown){
-			console.log('Preview It: fail to get manifest.json;');
-		});
+				console.log('Preview It: fail to get manifest.json;');
+			});	
+		}
 	});
 });
 function getPathByName(name){
